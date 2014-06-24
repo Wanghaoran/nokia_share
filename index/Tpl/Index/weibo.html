@@ -7,6 +7,30 @@
 <link href="__PUBLIC__/weibo/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<!--pop start-->
+<div id="popDiv" class="mydiv" style="display:none;">
+    <a href="javascript:closeBg();" class="btn_del" title="关闭"></a>
+    <div class="popcon">
+        <div class="popcon_left"><img src="__PUBLIC__/weibo/images/img_ewm.jpg" /></div>
+        <div class="popcon_right">
+            <div class="btn_save"><a href="#" title="保存到本地"></a></div>
+            <div class="sharediv">
+                <a title="分享到新浪微博" href="javascript:void(0);"><span class="xinlang"></span></a>
+                <a title="分享到微信" href="javascript:void(0);"><span class="weixin"></span></a>
+                <a title="分享到微信朋友圈" href="javascript:void(0);"><span class="weixinpy"></span></a>
+                <a title="分享到腾讯微博" href="javascript:void(0)" onclick="postToWb();"><span class="tengxunweibo"></span></a>
+                <a title="分享到Qzone空间" href="javascript:void(0);"><span class="qqzone"></span></a>
+                <a title="分享到人人网" href="javascript:void(0);"><span class="renren"></span></a>
+            </div>
+        </div>
+        <div class="clear20"></div>
+        <div class="popcon_foot"><a href="#">http://wwww.baidu.com</a></div>
+    </div>
+</div>
+<div id="hidebg" class="hidebg" style="display:none"></div>
+<!--pop end-->
+
+
 <div class="contain">
 	<!--header start-->
 	<div class="header"><a href="#" class="logo"></a></div>
@@ -21,10 +45,10 @@
                 <a href="javascript:alert('数据校验失败！');" title="领取二维码"></a>
                 </if>
                 <if condition="!empty($no_login)">
-                    <a href="javascript:alert('您还未登录，请先登录！');" title="领取二维码"></a>
+                    <a href="javascript:weiboLogin();" title="领取二维码"></a>
                 </if>
                 <if condition="!empty($login)">
-                    <a href="javascript:alert('<-{$user_id}->');" title="领取二维码"></a>
+                    <a href="javascript:showBg();" title="领取二维码"></a>
                 </if>
             </div>
         </div>
@@ -93,10 +117,86 @@
 <script type="text/javascript" src="__PUBLIC__/weibo/javascript/jquery.js"></script>
 <script src="http://tjs.sjs.sinajs.cn/open/thirdpart/js/frame/appclient.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    App.trigger('login', {
-        // 请注意，redirect_uri 是登录成功后回调的 URL，必须传的是 *.weibo.com 下的 URL，不支持第三方的地址
-        'redirect_uri' : encodeURIComponent('http://apps.weibo.com/test/1660811367/358C3z')
-    });
+    var weiboLogin = function(){
+        App.trigger('login', {
+            // 请注意，redirect_uri 是登录成功后回调的 URL，必须传的是 *.weibo.com 下的 URL，不支持第三方的地址
+            'redirect_uri' : encodeURIComponent('http://apps.weibo.com/test/1660811367/358C3z')
+        });
+    }
+
 </script>
+
+
+<script type="text/javascript">
+    //显示灰色 jQuery 遮罩层
+    function showBg() {
+
+        $("#hidebg").css({
+            display: "block"
+        });
+        $("#popDiv").show();
+    }
+    //关闭灰色 jQuery 遮罩
+    function closeBg() {
+        $("#hidebg,#popDiv").hide();
+    }
+
+    // 分享代码
+    var shareid = "fenxiang";
+
+    (function() {
+        var a = {
+            url:function() {
+                return encodeURIComponent(window.location.href)
+            },title:function() {
+                return encodeURIComponent(window.document.title)
+            },content:function(b) {
+                if (b) {
+                    return encodeURIComponent($("#" + b).html())
+                } else {
+                    return""
+                }
+            },setid:function() {
+                if (typeof(shareid) == "undefined") {
+                    return null
+                } else {
+                    return shareid
+                }
+            },renren:function() {
+                window.open("http://share.renren.com/share/buttonshare.do?link=" + this.url() + "&title=" + this.title())
+            },sinaminiblog:function() {
+                window.open("http://v.t.sina.com.cn/share/share.php?url=" + this.url() + "&title=" + this.title() + "&content=utf-8&source=&sourceUrl=&pic=")
+            },qqzone:function() {
+                window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + encodeURIComponent(document.title))}};
+        window.share = a
+    })();
+
+    $(function() {
+        $(".renren").click(function() {
+            share.renren();
+        });
+        $(".xinlang").click(function() {
+            share.sinaminiblog();
+        });
+
+        $(".qqzone").click(function() {
+            share.qqzone();
+        });
+
+        $(".qqweibo").click(function() {
+            share.qqweibo();
+        });
+
+    });
+    function postToWb() {
+        var _t = encodeURI(document.title);
+        var _url = encodeURI(document.location);
+        var _appkey = encodeURI("appkey");
+        var _u = 'http://v.t.qq.com/share/share.php?title=' + _t + '&url=' + _url + '&appkey=' + _appkey;
+        window.open(_u);
+    }
+</script>
+
+
 </body>
 </html>
