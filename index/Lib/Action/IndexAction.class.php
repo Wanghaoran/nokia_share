@@ -6,7 +6,7 @@ class IndexAction extends Action {
     }
 
     public function weibo(){
-        if(!empty($_POST['signed_request'])){
+        if(empty($_POST['signed_request'])){
             redirect('Index/index');
         }
         //微博POST的数据
