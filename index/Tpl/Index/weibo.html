@@ -103,16 +103,10 @@
                 <div class="list_lh">
 
                 <ul class="numlist">
-                        <li>1.xxxxx</li>
-                        <li>2.xxxxx</li>
-                        <li>3.xxxxx</li>
-                        <li>4.xxxxx</li>
-                        <li>5.xxxxx</li>
-                        <li>6.xxxxx</li>
-                        <li>7.xxxxx</li>
-                        <li>8.xxxxx</li>
-                        <li>9.xxxxx</li>
-                        <li>10.xxxxx</li>
+                    <volist name="user_rank" id="ur">
+                        <li><-{$i}->.<-{$ur}-></li>
+                    </volist>
+
                 </ul>
                 </div>
 

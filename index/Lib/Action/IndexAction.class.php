@@ -45,6 +45,16 @@ class IndexAction extends Action {
             }
         }
 
+        //帮友排行
+        $user_rank = array(
+            'leonstein',
+            '小妖弥勒',
+            '妖妖漆_修行中',
+            'mahsud1984',
+            '为你又来',
+        );
+        $this -> assign('user_rank', $user_rank);
+
 
         $this -> display();
     }
