@@ -96,13 +96,18 @@
         	<div class="bybcon_left">
             	<div class="bybcon_l_title"></div>
                 <ul class="numlist">
-                    <!--
-                	<li>1.xxxxx</li>
-                    <li>2.xxxxx</li>
-                    <li>3.xxxxx</li>
-                    <li>4.xxxxx</li>
-                    <li>5.xxxxx</li>
-                    -->
+                    <div class="list_lh">
+                        <li>1.xxxxx</li>
+                        <li>2.xxxxx</li>
+                        <li>3.xxxxx</li>
+                        <li>4.xxxxx</li>
+                        <li>5.xxxxx</li>
+                        <li>6.xxxxx</li>
+                        <li>7.xxxxx</li>
+                        <li>8.xxxxx</li>
+                        <li>9.xxxxx</li>
+                        <li>10.xxxxx</li>
+                    </div>
                 </ul>
             </div>
             <div class="bybcon_right">
@@ -119,6 +124,15 @@
 </div>
 <script type="text/javascript" src="__PUBLIC__/weibo/javascript/jquery.js"></script>
 <script src="http://tjs.sjs.sinajs.cn/open/thirdpart/js/frame/appclient.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/weibo/javascript/scroll.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("div.list_lh").myScroll({
+            speed:40, //数值越大，速度越慢
+            rowHeight:68 //li的高度
+        });
+    })
+</script>
 <script>
     var weiboLogin = function(){
         App.trigger('login', {
