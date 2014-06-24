@@ -133,6 +133,24 @@
     //显示灰色 jQuery 遮罩层
     function showBg(user_id) {
 
+        $.ajax({
+            type : 'GET',
+            url : '__URL__/check/id/' + user_id + '/type/weibo',
+            cache : false,
+            dataType : 'json',
+            success : function(ress){
+                if(ress.status == 'error'){
+                    alert('数据请求失败！请稍后再试！');
+                    return;
+                }else{
+                    console.log(ress);
+                    return;
+                }
+
+            }
+        });
+
+
         console.log(user_id);
 
 
