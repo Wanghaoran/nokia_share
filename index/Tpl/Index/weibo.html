@@ -42,13 +42,13 @@
         	<div class="ewmimg"><img src="__PUBLIC__/weibo/images/img_ewm.jpg" /></div>
             <div class="btnewm" style="margin-top: 50px;">
                 <if condition="!empty($parse_error)">
-                <a href="javascript:alert('数据校验失败！');" title="领取二维码"></a>
+                <a href="javascript:alert('验证失败！');" title="领取二维码"></a>
                 </if>
                 <if condition="!empty($no_login)">
                     <a href="javascript:weiboLogin();" title="领取二维码"></a>
                 </if>
                 <if condition="!empty($login)">
-                    <a href="javascript:showBg();" title="领取二维码"></a>
+                    <a href="javascript:showBg('<-{$user_id}->');" title="领取二维码"></a>
                 </if>
             </div>
         </div>
@@ -106,8 +106,11 @@
                 </ul>
             </div>
             <div class="bybcon_right">
-            	<div class="bybcon_r_input"><input type="text"/></div>
-                <div class="bybcon_r_query"><a href="#" title="查询"></a></div>
+                <div class="bybcon_l_title_2"></div>
+                <ul class="numlist2">
+                    <li>已经有&nbsp;&nbsp;<span style="color: red;font-size: 30px;">XX</span>&nbsp;&nbsp;人通过你的二维码购买了产品</li>
+                    <li>你帮友的排名是：&nbsp;&nbsp;<span style="color: red;font-size: 30px;">XX</span>&nbsp;&nbsp;名</li>
+                </ul>
             </div>
         </div>
         <div class="clear"></div>
@@ -119,7 +122,6 @@
 <script>
     var weiboLogin = function(){
         App.trigger('login', {
-            // 请注意，redirect_uri 是登录成功后回调的 URL，必须传的是 *.weibo.com 下的 URL，不支持第三方的地址
             'redirect_uri' : encodeURIComponent('http://apps.weibo.com/test/1660811367/358C3z')
         });
     }
@@ -129,7 +131,10 @@
 
 <script type="text/javascript">
     //显示灰色 jQuery 遮罩层
-    function showBg() {
+    function showBg(user_id) {
+
+        console.log(user_id);
+
 
         $("#hidebg").css({
             display: "block"
