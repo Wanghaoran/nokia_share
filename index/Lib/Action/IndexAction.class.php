@@ -6,6 +6,9 @@ class IndexAction extends Action {
     }
 
     public function weibo(){
+        if(!empty($_POST['signed_request'])){
+            redirect('Index/index');
+        }
         //微博POST的数据
         $weibo_post = parseSignedRequest($_POST['signed_request']);
         if($weibo_post == '-1' || $weibo_post == '-2'){
