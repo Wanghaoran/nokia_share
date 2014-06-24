@@ -6,6 +6,7 @@ class IndexAction extends Action {
     }
 
     public function weibo(){
+        dump($_POST);
         $this -> display();
     }
 }
