@@ -6,7 +6,7 @@ class IndexAction extends Action {
     }
 
     public function weibo(){
-        dump($_POST);
+        dump(parseSignedRequest($_POST['signed_request']));
         $this -> display();
     }
 }
