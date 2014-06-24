@@ -24,7 +24,7 @@
                     <a href="javascript:alert('您还未登录，请先登录！');" title="领取二维码"></a>
                 </if>
                 <if condition="!empty($login)">
-                    <a href="javascript:alert('登录正常！');" title="领取二维码"></a>
+                    <a href="javascript:alert('<-{$user_id}->');" title="领取二维码"></a>
                 </if>
             </div>
         </div>
@@ -91,7 +91,10 @@
 <script type="text/javascript" src="__PUBLIC__/weibo/javascript/jquery.js"></script>
 <script src="http://tjs.sjs.sinajs.cn/open/thirdpart/js/frame/appclient.js" type="text/javascript" charset="utf-8"></script>
 <script>
-
+    App.trigger('login', {
+        // 请注意，redirect_uri 是登录成功后回调的 URL，必须传的是 *.weibo.com 下的 URL，不支持第三方的地址
+        'redirect_uri' : encodeURIComponent('http://apps.weibo.com/test/1660811367/358C3z')
+    });
 </script>
 </body>
 </html>

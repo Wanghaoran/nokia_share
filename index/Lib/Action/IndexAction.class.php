@@ -14,9 +14,8 @@ class IndexAction extends Action {
             $this -> assign('no_login', 1);
         }else{
             $this -> assign('login', 1);
+            $this -> assign('user_id', $weibo_post['user_id']);
         }
-
-        dump($weibo_post);
 
         $this -> display();
     }
