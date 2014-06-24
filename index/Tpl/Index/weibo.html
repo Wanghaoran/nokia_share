@@ -159,16 +159,12 @@
                     alert('数据请求失败！请稍后再试！');
                     return;
                 }else{
-                    console.log(ress);
+                    $("#img_keleyi_com").attr("src", "__APP__/Index/checkqr/id/" + ress.id);
                     return;
                 }
 
             }
         });
-
-
-        console.log(user_id);
-
 
         $("#hidebg").css({
             display: "block"

@@ -41,8 +41,20 @@ class IndexAction extends Action {
             $return_result['status'] = 'success';
             $return_result['id'] = $result['id'];
         }
-
         echo json_encode($return_result);
+    }
 
+    public function checkqr(){
+        $id = $this -> _get('id', 'intval');
+        Vendor('phpqrcode.phpqrcode');
+        $value="http://182.92.64.207/nokia_share/share/" . $id;
+        $errorCorrectionLevel = "H";
+        $matrixPointSize = "10";
+        QRcode::png($value, false, $errorCorrectionLevel, $matrixPointSize);
+        exit;
+    }
+
+    public function share(){
+        dump($_GET);
     }
 }
