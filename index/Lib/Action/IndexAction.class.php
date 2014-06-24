@@ -109,6 +109,10 @@ class IndexAction extends Action {
 
     public function share(){
 
+        //优惠码
+        $code = md5(time());
+        $this -> assign('code', $code);
+
         //帮友排行
         $user_rank = array(
             'leonstein',
