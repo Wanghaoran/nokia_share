@@ -1,1 +1,176 @@
-这是首页
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>拉帮皆友一起享</title>
+<link href="__PUBLIC__/index/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!--pop start-->
+    <div id="popDiv" class="mydiv" style="display:none;">  
+		<a href="javascript:closeBg()" class="btn_del" title="关闭"></a>
+        <div class="popcon">
+        	<div class="popcon_left"><img src="__PUBLIC__/index/images/img_ewm.jpg" /></div>
+            <div class="popcon_right">
+            	<div class="btn_save"><a href="#" title="保存到本地"></a></div>
+                <div class="sharediv">
+                    <a title="分享到新浪微博" href="javascript:void(0);"><span class="xinlang"></span></a>
+                    <a title="分享到微信" href="javascript:void(0);"><span class="weixin"></span></a>
+                    <a title="分享到微信朋友圈" href="javascript:void(0);"><span class="weixinpy"></span></a>
+                    <a title="分享到腾讯微博" href="javascript:void(0)" onclick="postToWb();"><span class="tengxunweibo"></span></a>
+                    <a title="分享到Qzone空间" href="javascript:void(0);"><span class="qqzone"></span></a>
+                    <a title="分享到人人网" href="javascript:void(0);"><span class="renren"></span></a>
+                </div>
+            </div>
+            <div class="clear20"></div>
+            <div class="popcon_foot"><a href="#">http://wwww.baidu.com</a></div>
+        </div>
+    </div>                                   
+    <div id="hidebg" class="hidebg" style="display:none"></div>
+    <!--pop end-->
+	<!--header start-->
+	<div class="header">
+    	<div class="headcon">
+        	<a href="#" class="logo"></a>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--header end-->
+    <!--active start-->
+    <div class="hdnr">
+    	<div class="hdnrcon">
+        	<div class="hdnrconleft">
+            	<div class="imgbox"><a href="#"><img src="__PUBLIC__/index/images/ewm.jpg" /></a></div>
+                <div class="inputbox"><input type="text" class="inputclass" value=""/></div>
+                <div class="btn_click"><a href="#" onClick="alert('活动尚未开始，暂不可领取！');return;showBg();" title="点击生成"></a></div>
+            </div>
+        </div>
+    </div>
+    <!--active end-->
+    <!--product start-->
+    <div class="zxjxbox">
+    	<div class="zxjxtitle"></div>
+        <div class="zxjxcon">
+        	<ul class="product">
+            	<li>
+                	<div class="divimg"><img src="__PUBLIC__/index/images/img_phone1.jpg" /></div>
+                    <div class="divprice"><img src="__PUBLIC__/index/images/img_price1.jpg" /></div>
+                    <div class="btn_buy"><a href="http://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.13.4DQrnD&id=35513521732&_u=k1ivtdloc78a&areaId=110100&cat_id=50024400&rn=a7c5bf80537b4fc58eaf525a51408706&user_id=1711191736&is_b=1" target="_blank" title="点击购买"></a></div>
+                </li>
+                <li>
+                	<div class="divimg"><img src="__PUBLIC__/index/images/img_phone2.jpg" /></div>
+                    <div class="divprice"><img src="__PUBLIC__/index/images/img_price2.jpg" /></div>
+                    <div class="btn_buy"><a href="http://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.V4mJOx&id=19999458201&_u=k1ivtdloc384&areaId=110100&cat_id=2&rn=eb67665b5b953a66bc6a61a1ea6e3f38&user_id=1711191736&is_b=1" target="_blank" title="点击购买"></a></div>
+                </li>
+                <li>
+                	<div class="divimg"><img src="__PUBLIC__/index/images/img_phone3.jpg" /></div>
+                    <div class="divprice"><img src="__PUBLIC__/index/images/img_price3.jpg" /></div>
+                    <div class="btn_buy"><a href="http://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.32.O1zRTA&id=39241286623&_u=k1ivtdlo7eee&areaId=110100&cat_id=50024400&rn=c8244685fec015117979f01407e1a147&user_id=1072758640&is_b=1" target="_blank" title="点击购买"></a></div>
+                </li>
+                <li>
+                	<div class="divimg"><img src="__PUBLIC__/index/images/img_phone4.jpg" /></div>
+                    <div class="divprice"><img src="__PUBLIC__/index/images/img_price4.jpg" /></div>
+                    <div class="btn_buy"><a href="http://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.11.TorzLz&id=38850631036&_u=k1ivtdlo59cb&areaId=110100&cat_id=50024400&rn=8d1d101a7f1c6195fdb496545efcfd78&user_id=1115574360&is_b=1" target="_blank" title="点击购买"></a></div>
+                </li>
+                <li class="last">
+                	<div class="divimg"><img src="__PUBLIC__/index/images/img_phone5.jpg" /></div>
+                    <div class="divprice"><img src="__PUBLIC__/index/images/img_price5.jpg" /></div>
+                    <div class="btn_buy"><a href="http://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.6.5XPajX&id=39217571828&_u=k1ivtdlob5a4&areaId=110100&cat_id=2&rn=b5a24abaed301bbe07732f89c73b314f&user_id=1102421602&is_b=1" target="_blank" title="点击购买"></a></div>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--product end-->
+    <!--friend start-->
+    <div class="bybbox">
+    	<div class="bybtitle"></div>
+        <div class="bybcon">
+        	<div class="bybcon_left">
+            	<div class="bybcon_l_title"></div>
+                <ul class="numlist">
+                    <volist name="user_rank" id="ur">
+                        <li><-{$i}->.<-{$ur}-></li>
+                    </volist>
+                </ul>
+            </div>
+            <div class="bybcon_right">
+            	<div class="bybcon_r_input"><input type="text" value=""/></div>
+                <div class="bybcon_r_query"><a href="javascript:alert('亲，活动还没开始，请开始后再来查询哦！');" title="查询"></a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--friend end-->
+<script src="__PUBLIC__/index/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    //显示灰色 jQuery 遮罩层
+    function showBg() {
+        
+        $("#hidebg").css({
+            display: "block"
+        });
+        $("#popDiv").show();
+    }
+    //关闭灰色 jQuery 遮罩
+    function closeBg() {
+        $("#hidebg,#popDiv").hide();
+    }
+	
+// 分享代码
+var shareid = "fenxiang";
+
+(function() {
+    var a = {
+        url:function() {
+            return encodeURIComponent(window.location.href)
+        },title:function() {
+            return encodeURIComponent(window.document.title)
+        },content:function(b) {
+            if (b) {
+                return encodeURIComponent($("#" + b).html())
+            } else {
+                return""
+            }
+        },setid:function() {
+            if (typeof(shareid) == "undefined") {
+                return null
+            } else {
+                return shareid
+            }
+        },renren:function() {
+            window.open("http://share.renren.com/share/buttonshare.do?link=" + this.url() + "&title=" + this.title())
+        },sinaminiblog:function() {
+            window.open("http://v.t.sina.com.cn/share/share.php?url=" + this.url() + "&title=" + this.title() + "&content=utf-8&source=&sourceUrl=&pic=")
+        },qqzone:function() {
+            window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + encodeURIComponent(document.title))}};
+    window.share = a
+})();
+
+$(function() {
+    $(".renren").click(function() {
+        share.renren();
+    });
+    $(".xinlang").click(function() {
+        share.sinaminiblog();
+    });
+    
+    $(".qqzone").click(function() {
+        share.qqzone();
+    });
+    
+    $(".qqweibo").click(function() {
+        share.qqweibo();
+    });
+	
+});
+function postToWb() {
+    var _t = encodeURI(document.title);
+    var _url = encodeURI(document.location);
+    var _appkey = encodeURI("appkey");
+    var _u = 'http://v.t.qq.com/share/share.php?title=' + _t + '&url=' + _url + '&appkey=' + _appkey;
+    window.open(_u);
+}
+</script>
+</body>
+</html>
