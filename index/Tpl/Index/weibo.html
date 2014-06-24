@@ -162,12 +162,12 @@
                     $("#img_keleyi_com").attr("src", "__APP__/Index/checkqr/id/" + ress.id);
                     $("#img_keleyi_com").attr("width", "200");
                     $("#img_keleyi_com").attr("height", "200");
+                    $("#hidebg").css({
+                        display: "block"
+                    });
+                    $("#popDiv").show();
                     return;
                 }
-                $("#hidebg").css({
-                    display: "block"
-                });
-                $("#popDiv").show();
             }
         });
 
