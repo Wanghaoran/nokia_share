@@ -13,12 +13,39 @@ class IndexAction extends Action {
         $weibo_post = parseSignedRequest($_POST['signed_request']);
         if($weibo_post == '-1' || $weibo_post == '-2'){
             $this -> assign('parse_error', 1);
+        //未登录
         }else if(empty($weibo_post['user_id'])){
             $this -> assign('no_login', 1);
+        //已登录
         }else{
             $this -> assign('login', 1);
             $this -> assign('user_id', $weibo_post['user_id']);
+
+            //计算排名和购买数量
+
+
+            $User = M('User');
+            //获取ID
+            $where = array();
+            $data['type'] = 'weibo';
+            $data['content'] = $weibo_post['user_id'];
+            $id_arr = $User -> field('id') -> where($data) -> find();
+            if(!$id_arr){
+                $this -> assign('nocheck', 1);
+            }else{
+                $id = $id_arr['id'];
+                //获取排名
+                $where = array();
+                $where['id'] = array('ELT', $id);
+                $rank = $User -> where($where) -> count();
+                $this -> assign('rank', $rank);
+                //购买数量
+                $buy_num = 0;
+                $this -> assign('buy_num', $buy_num);
+            }
         }
+
+
         $this -> display();
     }
 
