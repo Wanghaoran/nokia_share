@@ -15,7 +15,7 @@
     <div class="popcon">
         <div class="popcon_left"><img id="img_keleyi_com" src="" /></div>
         <div class="popcon_right">
-            <div class="btn_save"><a href="#" title="保存到本地"></a></div>
+            <div class="btn_save"><a id="img_keleyi_com_2" href="#" title="保存到本地"></a></div>
             <div class="sharediv">
                 <wb:share-button appkey="358C3z" addition="full" type="button" ralateUid="1660811367" default_text="我参加了诺基亚“拉帮‘皆’友，一起享”活动，扫描我的二维码或点击（链接）购买就能立享优惠哦！明星机型都有参与！" picture_search="false"></wb:share-button>
                 <!--
@@ -167,6 +167,7 @@
                     $("#img_keleyi_com").attr("src", "__APP__/Index/checkqr/id/" + ress.id);
                     $("#img_keleyi_com").attr("width", "200");
                     $("#img_keleyi_com").attr("height", "200");
+                    $("#img_keleyi_com_2").attr("href", "__APP__/Index/downqr/id/" + ress.id);
                     $("#hidebg").css({
                         display: "block"
                     });
