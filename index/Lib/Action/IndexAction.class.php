@@ -54,6 +54,13 @@ class IndexAction extends Action {
             }
         }
 
+        //排名数据
+        if(empty($weibo_post['user_id'])){
+            $this -> assign('rank_error', 1);
+        }else{
+            $this -> assign('rank_success', 1);
+        }
+
         //帮友排行
         $user_rank = array(
             'leonstein',

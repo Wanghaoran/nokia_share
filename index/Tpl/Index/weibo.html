@@ -114,6 +114,13 @@
             <div class="bybcon_right">
                 <div class="bybcon_l_title_2"></div>
                 <ul class="numlist2">
+                    <if condition="!empty($rank_error)">
+                        <li>您还未登录微博，请先登录微博后再查看您的成绩！</li>
+                    </if>
+                    <if condition="!empty($rank_success)">
+                        <li>已经有&nbsp;&nbsp;<span style="color: red;font-size: 30px;">0</span>&nbsp;&nbsp;人通过你的二维码购买了产品</li>
+                        <li>你帮友的排名是：&nbsp;&nbsp;<span style="color: red;font-size: 30px;">9</span>&nbsp;&nbsp;名</li>
+                    </if>
                     <!--
                     <if condition="empty($nocheck)">
                         <li>已经有&nbsp;&nbsp;<span style="color: red;font-size: 30px;"><-{$buy_num}-></span>&nbsp;&nbsp;人通过你的二维码购买了产品</li>
@@ -122,10 +129,6 @@
                         <li>您还未参加此次活动，赶快点击领取二维码参加活动吧！</li>
                     </if>
                     -->
-
-                    <li>已经有&nbsp;&nbsp;<span style="color: red;font-size: 30px;">0</span>&nbsp;&nbsp;人通过你的二维码购买了产品</li>
-                    <li>你帮友的排名是：&nbsp;&nbsp;<span style="color: red;font-size: 30px;">9</span>&nbsp;&nbsp;名</li>
-
                 </ul>
             </div>
         </div>
@@ -149,7 +152,7 @@
 <script>
     var weiboLogin = function(){
         App.trigger('login', {
-            'redirect_uri' : encodeURIComponent('http://apps.weibo.com/test/1660811367/358C3z')
+            'redirect_uri' : encodeURIComponent('http://apps.weibo.com/1660811367/8rYX8C3z')
         });
     }
 
