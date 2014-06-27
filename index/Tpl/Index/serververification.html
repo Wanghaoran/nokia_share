@@ -49,11 +49,12 @@
                                 <h3 class="panel-title">验证失败</h3>
                             </div>
                             <div class="panel-body">
-                                <h2><small><-{$result.code}-></small>此优惠码已被使用！</h2>
-                                <p class="lead">所属用户：<-{$result.uname}-></p>
-                                <p class="lead">使用订单号：<-{$result.orderid}-></p>
-                                <p class="lead">领取时间：<-{$result.addtime|date="Y-m-d H:i:s", ###}-></p>
-                                <p class="lead">验证时间：<-{$result.checktime|date="Y-m-d H:i:s", ###}-></p>
+                                <h3>此优惠码已被使用！</h3>
+                                <p class="lead">优惠码：<small><-{$result.code}-></small></p>
+                                <p class="lead">所属用户：<small><-{$result.uname}-></small></p>
+                                <p class="lead">使用订单号：<small><-{$result.orderid}-></small><</p>
+                                <p class="lead">领取时间：<small><-{$result.addtime|date="Y-m-d H:i:s", ###}-></small><</p>
+                                <p class="lead">验证时间：<small><-{$result.checktime|date="Y-m-d H:i:s", ###}-></small><</p>
                             </div>
                         </div>
 
