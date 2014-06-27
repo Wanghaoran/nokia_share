@@ -65,9 +65,7 @@ class IndexAction extends Action {
 
         //帮友排行
         $Num = M('Num');
-        $user_rank = $Num -> alias('n') -> field('u.name as uname') -> join('nokia_user as u ON n.uid = u.id') -> order('n.sum DESC u.addtime ASC') -> limit(5) -> select();
-        echo $Num -> getLastSql();
-        dump($user_rank);
+        $user_rank = $Num -> alias('n') -> field('u.name as uname') -> join('nokia_user as u ON n.uid = u.id') -> order('n.sum DESC,u.addtime ASC') -> limit(5) -> select();
         $this -> assign('user_rank', $user_rank);
 
 
