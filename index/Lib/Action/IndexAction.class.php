@@ -35,7 +35,6 @@ class IndexAction extends Action {
 
             //计算排名和购买数量
 
-
             $User = M('User');
             //获取ID
             $where = array();
@@ -95,7 +94,7 @@ class IndexAction extends Action {
             $weibo_post = parseSignedRequest($_POST['css']);
             //获取微博名称
             $weibo_restr = file_get_contents('https://api.weibo.com/2/users/show.json?uid=' . $this -> _post('id') . '&access_token=' . $weibo_post['oauth_token'] . '');
-            dump($weibo_restr);
+            dump($weibo_restr['screen_name']);
             if($id = $User -> add($data)){
                 $return_result['status'] = 'success';
                 $return_result['id'] = $id;
