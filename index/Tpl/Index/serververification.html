@@ -74,7 +74,7 @@
                                     <span class="help-block">此订单为淘宝使用此优惠码的订单号，请务必保证填写准确</span>
                                 </div>
 
-                                <button type="button" class="btn btn-success">提交验证信息</button>
+                                <button type="button" class="btn btn-success" onclick="sendcheckinfo();">提交验证信息</button>
 
                                 </p>
                             </div>
@@ -97,5 +97,26 @@
 <!--<script src="__PUBLIC__/js/jquery.min.js"></script>-->
 <script src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
 <script src="__PUBLIC__/bootstarp/js/bootstrap.min.js"></script>
+
+<script>
+    var sendcheckinfo = function(){
+        var exampleInputOrder = $('#exampleInputOrder').val();
+        if(!exampleInputOrder){
+            alert('订单号不能为空！请重新填写！');
+            return;
+        }
+
+        $.ajax({
+            type : 'POST',
+            url : '__URL__/updateinfo',
+            cache : false,
+            data : '&id=<-{$result.id}->&orderid=' + exampleInputOrder,
+//            dataType : 'json',
+            success : function(ress){
+
+            }
+        });
+    }
+</script>
 </body>
 </html>
