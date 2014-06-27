@@ -99,6 +99,13 @@ class IndexAction extends Action {
             $data['name'] = $weibo_result['screen_name'];
 
             if($id = $User -> add($data)){
+
+                //新建统计数据
+                $Num = M('Num');
+                $data_num = array();
+                $data_num['uid'] = $id;
+                $data_num['sum'] = 0;
+                $Num -> add($data_num);
                 $return_result['status'] = 'success';
                 $return_result['id'] = $id;
             }else{
