@@ -171,7 +171,6 @@ class IndexAction extends Action {
             $where = array();
             $where['c.code'] = $_POST['code'];
             $result = $ShareCode -> alias('c') -> field('u.name as uname,c.code,c.status,c.orderid,c.addtime,c.checktime') -> where($where) -> join('nokia_user as u ON c.uid = u.id') -> find();
-            dump($result);
             $this -> assign('result', $result);
         }
         $this -> display();
