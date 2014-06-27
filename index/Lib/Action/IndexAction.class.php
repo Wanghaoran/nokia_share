@@ -20,6 +20,9 @@ class IndexAction extends Action {
         }
         //微博POST的数据
         $weibo_post = parseSignedRequest($_POST['signed_request']);
+
+        dump($weibo_post);
+
         if($weibo_post == '-1' || $weibo_post == '-2'){
             $this -> assign('parse_error', 1);
         //未登录
@@ -88,6 +91,8 @@ class IndexAction extends Action {
             $data['type'] = $this -> _get('type');
             $data['content'] = $this -> _get('id');
             $data['addtime'] = time();
+            //获取微博名称
+            file_get_contents('https://api.weibo.com/2/users/show.json?uid=' . $this -> _get('id') . '&access_token=2.00z7MGrCbudO1C0b6e9b6ce3CflmqB');
             if($id = $User -> add($data)){
                 $return_result['status'] = 'success';
                 $return_result['id'] = $id;
