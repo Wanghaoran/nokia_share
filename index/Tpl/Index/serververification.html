@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>拉帮皆友一起享－活动优惠码验证系统</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__PUBLIC__/bootstarp/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/upload/css/upload.css">
+    <script src="__PUBLIC__/js/respond.js"></script>
+</head>
+<body>
+
+<include file="Index:header" />
+
+<div class="container">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <include file="Index:sidebar" />
+
+        <div class="col-xs-9">
+
+
+            <form role="form" action="__ACTION__" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">请输入优惠码：</label>
+                    <input type="text" class="form-control" name="code" id="exampleInputEmail1" placeholder="请输入优惠码" />
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg">验证优惠码</button>
+            </form>
+
+        </div><!--/span-->
+
+    </div>
+
+    <include file="Index:footer" />
+
+</div>
+
+<!--<script src="__PUBLIC__/js/jquery.min.js"></script>-->
+<script src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+<script src="__PUBLIC__/bootstarp/js/bootstrap.min.js"></script>
+</body>
+</html>
