@@ -148,7 +148,8 @@ class IndexAction extends Action {
         $data['code'] = $code;
         $data['addtime'] = time();
         if(!$ShareCode -> add($data)){
-            exit('<h1>此用户不存在！</h1>');
+            $this -> show('<h1>此用户不存在！</h1>');
+            return;
         }
 
         //帮友排行
