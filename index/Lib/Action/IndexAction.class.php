@@ -64,13 +64,8 @@ class IndexAction extends Action {
         }
 
         //帮友排行
-        $user_rank = array(
-            'leonstein',
-            '小妖弥勒',
-            '妖妖漆_修行中',
-            'mahsud1984',
-            '为你又来',
-        );
+        $Num = M('Num');
+        $user_rank = $Num -> alias('n') -> field('u.name as uname') -> join('nokia_user as u ON n.uid = u.id') -> order('n.sum DESC u.addtime ASC') -> limit(5) -> select();
         $this -> assign('user_rank', $user_rank);
 
 
