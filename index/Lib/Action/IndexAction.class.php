@@ -38,21 +38,23 @@ class IndexAction extends Action {
             $User = M('User');
             //获取ID
             $where = array();
-            $data['type'] = 'weibo';
-            $data['content'] = $weibo_post['user_id'];
-            $id_arr = $User -> field('id') -> where($data) -> find();
+            $where['type'] = 'weibo';
+            $where['content'] = $weibo_post['user_id'];
+            $id_arr = $User -> field('id') -> where($where) -> find();
             if(!$id_arr){
                 $this -> assign('nocheck', 1);
             }else{
-                $id = $id_arr['id'];
+                $uid = $id_arr['id'];
+                $Num = M('Num');
+                //购买数量
+                $buy_num = $Num -> getFieldByuid($uid, 'sum');
+                $this -> assign('buy_num', $buy_num);
                 //获取排名
                 $where = array();
-                $where['id'] = array('ELT', $id);
-                $rank = $User -> where($where) -> count();
+                $where['sum'] = array('EGT', $buy_num);
+                $rank = $Num -> where($where) -> count();
                 $this -> assign('rank', $rank);
-                //购买数量
-                $buy_num = 0;
-                $this -> assign('buy_num', $buy_num);
+
             }
         }
 
@@ -155,13 +157,8 @@ class IndexAction extends Action {
         }
 
         //帮友排行
-        $user_rank = array(
-            'leonstein',
-            '小妖弥勒',
-            '妖妖漆_修行中',
-            'mahsud1984',
-            '为你又来',
-        );
+        $Num = M('Num');
+        $user_rank = $Num -> alias('n') -> field('u.name as uname') -> join('nokia_user as u ON n.uid = u.id') -> order('n.sum DESC,u.addtime ASC') -> limit(5) -> select();
         $this -> assign('user_rank', $user_rank);
         $this -> display();
     }
