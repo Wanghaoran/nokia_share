@@ -34,7 +34,7 @@
             <notempty name="Think.post.code">
 
                 <if condition="empty($result)">
-                    <div class="panel panel-danger">
+                    <div class="panel panel-danger" style="margin-top: 50px;">
                         <div class="panel-heading">
                             <h3 class="panel-title">验证失败</h3>
                         </div>
@@ -44,7 +44,7 @@
                     </div>
                 <else/>
                     <if condition="$result['status'] eq 2">
-                        <div class="panel panel-danger">
+                        <div class="panel panel-danger" style="margin-top: 50px;">
                             <div class="panel-heading">
                                 <h3 class="panel-title">验证失败</h3>
                             </div>
@@ -59,7 +59,7 @@
                         </div>
 
                     <else/>
-                        <div class="panel panel-success">
+                        <div class="panel panel-success" style="margin-top: 50px;">
                             <div class="panel-heading">
                                 <h3 class="panel-title">验证成功</h3>
                             </div>
