@@ -91,7 +91,7 @@ class IndexAction extends Action {
             //获取微博名称
             $weibo_restr = file_get_contents('https://api.weibo.com/2/users/show.json?uid=' . $this -> _post('id') . '&access_token=' . $weibo_post['oauth_token'] . '');
             $weibo_result = json_decode($weibo_restr, true);
-            
+
             $data = array();
             $data['type'] = $this -> _post('type');
             $data['content'] = $this -> _post('id');
@@ -137,7 +137,8 @@ class IndexAction extends Action {
     public function share(){
 
         //优惠码
-        $code = md5(time());
+        $code = uniqid('', true);
+        echo strlen($code);
         $this -> assign('code', $code);
 
         //帮友排行
