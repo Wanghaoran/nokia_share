@@ -146,6 +146,7 @@ class IndexAction extends Action {
         $data = array();
         $data['uid'] = $uid;
         $data['code'] = $code;
+        $data['addtime'] = time();
         if(!$ShareCode -> add($data)){
             exit('<h1>此用户不存在！</h1>');
         }
