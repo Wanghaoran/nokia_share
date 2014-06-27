@@ -184,6 +184,32 @@ class IndexAction extends Action {
     }
 
     public function updateinfo(){
-        dump($_POST);
+        $id = $this -> _post('id', 'intval');
+        $orderid = $this -> _post('orderid');
+        $ShareCode = M('ShareCode');
+        $Num = M('Num');
+
+        //更新验证码数据
+        $data_sharecode = array();
+        $data_sharecode['id'] = $id;
+        $data_sharecode['orderid'] = $orderid;
+        $data_sharecode['status'] = 2;
+        $data_sharecode['checktime'] = time();
+        if(!$ShareCode -> save($data_sharecode)){
+            echo 2;
+            return;
+        }
+
+        //读取此验证码所属用户
+        $uid = $ShareCode -> getFieldByid($id, 'uid');
+
+        //更新统计数据
+        $where_num = array();
+        $where_num['uid'] = $uid;
+        if(!$Num -> where($where_num) -> setInc('sum')){
+            echo 2;
+            return;
+        }
+        echo 1;
     }
 }

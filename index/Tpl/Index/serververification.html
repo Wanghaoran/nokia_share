@@ -113,7 +113,13 @@
             data : '&id=<-{$result.id}->&orderid=' + exampleInputOrder,
 //            dataType : 'json',
             success : function(ress){
-
+                if(ress == 1){
+                    alert('优惠码验证成功！');
+                    location.reload();
+                }else{
+                    alert('优惠码验证失败！');
+                    return;
+                }
             }
         });
     }
