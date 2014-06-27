@@ -94,7 +94,7 @@ class IndexAction extends Action {
             $weibo_post = parseSignedRequest($_POST['css']);
             //获取微博名称
             $weibo_restr = file_get_contents('https://api.weibo.com/2/users/show.json?uid=' . $this -> _post('id') . '&access_token=' . $weibo_post['oauth_token'] . '');
-            $weibo_result = json_decode($weibo_restr);
+            $weibo_result = json_decode($weibo_restr, true);
             dump($weibo_result['screen_name']);
             if($id = $User -> add($data)){
                 $return_result['status'] = 'success';
