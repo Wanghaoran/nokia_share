@@ -175,9 +175,10 @@
     function showBg(user_id) {
 
         $.ajax({
-            type : 'GET',
-            url : '__URL__/check/id/' + user_id + '/type/weibo',
+            type : 'POST',
+            url : '__URL__/check',
             cache : false,
+            data : '&id='+ user_id + '&type=weibo&css=<-{$signed_request}->',
             dataType : 'json',
             success : function(ress){
                 if(ress.status == 'error'){

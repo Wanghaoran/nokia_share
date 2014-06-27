@@ -21,6 +21,8 @@ class IndexAction extends Action {
         //微博POST的数据
         $weibo_post = parseSignedRequest($_POST['signed_request']);
 
+        $this -> assign('signed_request', $_POST['signed_request']);
+
         dump($weibo_post);
 
         if($weibo_post == '-1' || $weibo_post == '-2'){
@@ -81,18 +83,21 @@ class IndexAction extends Action {
     public function check(){
         $User = M('User');
         $where = array();
-        $where['type'] = $this -> _get('type');
-        $where['content'] = $this -> _get('id');
+        $where['type'] = $this -> _post('type');
+        $where['content'] = $this -> _post('id');
         $result = $User -> field('id') -> where($where) -> find();
         $return_result = array();
         //没有数据则新建数据
         if(!$result){
             $data = array();
-            $data['type'] = $this -> _get('type');
-            $data['content'] = $this -> _get('id');
+            $data['type'] = $this -> _post('type');
+            $data['content'] = $this -> _post('id');
             $data['addtime'] = time();
+            //获取access_token
+            $weibo_post = parseSignedRequest($_POST['css']);
             //获取微博名称
-            file_get_contents('https://api.weibo.com/2/users/show.json?uid=' . $this -> _get('id') . '&access_token=2.00z7MGrCbudO1C0b6e9b6ce3CflmqB');
+            $weibo_restr = file_get_contents('https://api.weibo.com/2/users/show.json?uid=' . $this -> _post('id') . '&access_token=' . $weibo_post['oauth_token'] . '');
+            dump($weibo_restr);
             if($id = $User -> add($data)){
                 $return_result['status'] = 'success';
                 $return_result['id'] = $id;
