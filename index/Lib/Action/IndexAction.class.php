@@ -138,8 +138,17 @@ class IndexAction extends Action {
 
         //优惠码
         $code = str_replace('.', rand(10000000, 99999999), uniqid('', true));
-        echo strlen($code);
         $this -> assign('code', $code);
+
+        //记录优惠码
+        $uid = $this -> _get('id', 'intval');
+        $ShareCode = M('ShareCode');
+        $data = array();
+        $data['uid'] = $uid;
+        $data['code'] = $code;
+        if(!$ShareCode -> add($data)){
+            exit('<h1>此用户不存在！</h1>');
+        }
 
         //帮友排行
         $user_rank = array(
