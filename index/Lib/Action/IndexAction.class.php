@@ -23,8 +23,6 @@ class IndexAction extends Action {
 
         $this -> assign('signed_request', $_POST['signed_request']);
 
-        dump($weibo_post);
-
         if($weibo_post == '-1' || $weibo_post == '-2'){
             $this -> assign('parse_error', 1);
         //未登录
