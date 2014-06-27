@@ -87,6 +87,7 @@ class IndexAction extends Action {
             $data = array();
             $data['type'] = $this -> _get('type');
             $data['content'] = $this -> _get('id');
+            $data['addtime'] = time();
             if($id = $User -> add($data)){
                 $return_result['status'] = 'success';
                 $return_result['id'] = $id;
