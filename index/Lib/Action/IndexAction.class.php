@@ -137,7 +137,7 @@ class IndexAction extends Action {
     public function share(){
 
         //优惠码
-        $code = uniqid('', true);
+        $code = str_replace('.', rand(10000000, 99999999), uniqid('', true));
         echo strlen($code);
         $this -> assign('code', $code);
 
