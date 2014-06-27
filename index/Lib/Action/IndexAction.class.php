@@ -86,16 +86,18 @@ class IndexAction extends Action {
         $return_result = array();
         //没有数据则新建数据
         if(!$result){
-            $data = array();
-            $data['type'] = $this -> _post('type');
-            $data['content'] = $this -> _post('id');
-            $data['addtime'] = time();
             //获取access_token
             $weibo_post = parseSignedRequest($_POST['css']);
             //获取微博名称
             $weibo_restr = file_get_contents('https://api.weibo.com/2/users/show.json?uid=' . $this -> _post('id') . '&access_token=' . $weibo_post['oauth_token'] . '');
             $weibo_result = json_decode($weibo_restr, true);
-            dump($weibo_result['screen_name']);
+            
+            $data = array();
+            $data['type'] = $this -> _post('type');
+            $data['content'] = $this -> _post('id');
+            $data['addtime'] = time();
+            $data['name'] = $weibo_result['screen_name'];
+
             if($id = $User -> add($data)){
                 $return_result['status'] = 'success';
                 $return_result['id'] = $id;
