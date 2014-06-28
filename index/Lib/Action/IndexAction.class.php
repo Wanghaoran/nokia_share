@@ -68,6 +68,9 @@ class IndexAction extends Action {
         //帮友排行
         $Num = M('Num');
         $user_rank = $Num -> alias('n') -> field('u.name as uname') -> join('nokia_user as u ON n.uid = u.id') -> order('n.sum DESC,u.addtime ASC') -> limit(5) -> select();
+        foreach($user_rank as $key => $value){
+            $user_rank[$key]['uname'] = cut_str($value['uname'], 1, 0).'****'.cut_str($value['uname'], 1, -1);
+        }
         $this -> assign('user_rank', $user_rank);
 
 
