@@ -177,6 +177,11 @@
                     alert('数据请求失败！请稍后再试！');
                     return;
                 }else{
+
+                    bShare.addEntry({
+                        pic: "__APP__/Index/checkqr/id/" + ress.id
+                    });
+
                     $("#img_keleyi_com").attr("src", "__APP__/Index/checkqr/id/" + ress.id);
                     $("#img_keleyi_com").attr("width", "200");
                     $("#img_keleyi_com").attr("height", "200");
