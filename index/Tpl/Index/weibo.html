@@ -21,7 +21,7 @@
                 <wb:share-button appkey="358C3z" addition="full" type="button" ralateUid="1660811367" default_text="我参加了诺基亚“拉帮‘皆’友，一起享”活动，扫描我的二维码或点击（链接）购买就能立享优惠哦！明星机型都有参与！" picture_search="false"></wb:share-button>
                 -->
                 <a title="分享到新浪微博" href="javascript:void(0);" onclick="bShare.share(event,'sinaminiblog',0);return false;"><span class="xinlang"></span></a>
-                <a title="分享到微信" href="javascript:void(0);" onclick="bShare.share(event,'weixin',0);return false;"><span class="weixin"></span></a>
+                <a title="分享到百度贴吧" href="javascript:void(0);" onclick="bShare.share(event,'itieba',0);return false;"><span class="weixin"></span></a>
                 <a title="分享到QQ好友" href="javascript:void(0);" onclick="bShare.share(event,'qqim',0);return false;"><span class="tengxunweibo"></span></a>
                 <a title="分享到腾讯微博" href="javascript:void(0)" onclick="bShare.share(event,'qqmb',0);return false;"><span class="weixinpy"></span></a>
                 <a title="分享到Qzone空间" href="javascript:void(0);" onclick="bShare.share(event,'qzone',0);return false;"><span class="qqzone"></span></a>
@@ -174,7 +174,7 @@
                     bShare.addEntry({
                         title: "拉帮皆友一起享",
                         url: "http://182.92.64.207/nokia_share/share/" + ress.id,
-                        summary: "我参加了诺基亚“拉帮‘皆’友，一起享”活动，扫描我的二维码或点击（链接）购买就能立享优惠哦！明星机型都有参与！",
+                        summary: "我参加了诺基亚“拉帮‘皆’友，一起享”活动，扫描我的二维码或点击（http://182.92.64.207/nokia_share/share/" + ress.id + "）购买就能立享优惠哦！明星机型都有参与！",
                         pic: "http://182.92.64.207__APP__/Index/checkqr/id/" + ress.id
                     });
 
