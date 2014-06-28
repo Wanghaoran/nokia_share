@@ -846,3 +846,8 @@ function parseSignedRequest($signed_request) {
     return ($sig !== $expected_sig)? '-2' : $data;
 }
 
+function half_replace($str){
+    $len = strlen($str)/2;
+    return substr_replace($str,str_repeat('*',$len),ceil(($len)/2),$len);
+}
+
