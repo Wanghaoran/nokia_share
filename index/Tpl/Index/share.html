@@ -16,7 +16,7 @@
     <!--header end-->
     <!--yhm start-->
     <div class="yhm">
-    	<div class="yhmcon"><input type="text" value="<-{$code}->" onkeydown="return false;" onkeyup="return false;" oncontextmenu="return false;" /><button onclick="copyToClipBoard(222);">3232</button></div>
+    	<div class="yhmcon"><input type="text" value="<-{$code}->" onkeydown="return false;" onkeyup="return false;" oncontextmenu="return false;" /><button onclick="copyToClipBoard(222);">复制到剪贴板</button></div>
     </div>
     <!--yhm end-->
     <!--product start-->
@@ -86,6 +86,7 @@
                 alert("已经复制到剪切板！"+ "\n" + s);
             } else if (navigator.userAgent.indexOf("Opera") != -1) {
                 window.location = s;
+                alert("已经复制到剪切板！"+ "\n" + s);
             } else if (window.netscape) {
                 try {
                     netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
