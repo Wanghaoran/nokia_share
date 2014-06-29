@@ -91,13 +91,18 @@
     <div class="bybbox">
     	<div class="bybtitle"></div>
         <div class="bybcon">
-        	<div class="bybcon_left">
-            	<div class="bybcon_l_title"></div>
-                <ul class="numlist">
-                    <volist name="user_rank" id="ur">
-                        <li><-{$i}->.<-{$ur.uname}-></li>
-                    </volist>
-                </ul>
+            <div class="bybcon_left">
+                <div class="bybcon_l_title"></div>
+                <div class="list_lh">
+
+                    <ul class="numlist">
+                        <volist name="user_rank" id="ur">
+                            <li><-{$i}->.<-{$ur.uname}-></li>
+                        </volist>
+
+                    </ul>
+                </div>
+
             </div>
             <div class="bybcon_right">
             	<div class="bybcon_r_input"><input type="text" value=""/></div>
@@ -108,6 +113,16 @@
     </div>
     <!--friend end-->
 <script src="__PUBLIC__/index/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/weibo/javascript/scroll.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("div.list_lh").myScroll({
+                speed:40, //数值越大，速度越慢
+                rowHeight:68 //li的高度
+            });
+        })
+    </script>
 <script type="text/javascript">
     //显示灰色 jQuery 遮罩层
     function showBg() {
