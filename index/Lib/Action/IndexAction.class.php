@@ -123,6 +123,42 @@ class IndexAction extends Action {
         echo json_encode($return_result);
     }
 
+    public function check_tel(){
+        $User = M('User');
+        $where = array();
+        $where['type'] = $this -> _post('type');
+        $where['content'] = $this -> _post('id');
+        $result = $User -> field('id') -> where($where) -> find();
+        $return_result = array();
+        //没有数据则新建数据
+        if(!$result){
+
+            $data = array();
+            $data['type'] = $this -> _post('type');
+            $data['content'] = $this -> _post('id');
+            $data['addtime'] = time();
+            $data['name'] = $this -> _post('id');
+
+            if($id = $User -> add($data)){
+
+                //新建统计数据
+                $Num = M('Num');
+                $data_num = array();
+                $data_num['uid'] = $id;
+                $data_num['sum'] = 0;
+                $Num -> add($data_num);
+                $return_result['status'] = 'success';
+                $return_result['id'] = $id;
+            }else{
+                $return_result['status'] = 'error';
+            }
+        }else{
+            $return_result['status'] = 'success';
+            $return_result['id'] = $result['id'];
+        }
+        echo json_encode($return_result);
+    }
+
     public function checkqr(){
         $id = $this -> _get('id', 'intval');
         Vendor('phpqrcode.phpqrcode');
