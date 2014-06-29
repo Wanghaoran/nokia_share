@@ -105,8 +105,8 @@
 
             </div>
             <div class="bybcon_right">
-            	<div class="bybcon_r_input"><input type="text" value=""/></div>
-                <div class="bybcon_r_query"><a href="javascript:alert('亲，活动还没开始，请开始后再来查询哦！');" title="查询"></a></div>
+            	<div class="bybcon_r_input"><input type="text" value="" id="query_list_tel"/></div>
+                <div class="bybcon_r_query"><a href="javascript:query_list();" title="查询"></a></div>
             </div>
         </div>
         <div class="clear"></div>
@@ -129,7 +129,7 @@
         var tel = $('#action_tel').val();
         if(!tel){
             alert('请输入您的手机号！');
-            return false;
+            return;
         }
 
         $.ajax({
@@ -188,6 +188,15 @@
         $("#hidebg,#popDiv").hide();
     }
 
+
+    var query_list = function(){
+        var tel = $('#query_list_tel').val();
+        if(!tel){
+            alert('请输入您的手机号！');
+            return;
+        }
+        console.log(tel);
+    }
 
 
 </script>
