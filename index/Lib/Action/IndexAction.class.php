@@ -252,4 +252,42 @@ class IndexAction extends Action {
         }
         echo 1;
     }
+
+    public function query_rank(){
+        //计算排名和购买数量
+        $con = $_POST['con'];
+
+        $result = array();
+
+        $User = M('User');
+        //获取ID
+        $where = array();
+        $where['content'] = $con;
+        $id_arr = $User -> field('id') -> where($where) -> find();
+        if(!$id_arr){
+            $return_result['status'] = 'error';
+        }else{
+            $uid = $id_arr['id'];
+            $Num = M('Num');
+            //购买数量
+            $buy_num = $Num -> getFieldByuid($uid, 'sum');
+            //获取排名
+            //先计算比自己数量多的人的数量
+            $where = array();
+            $where['sum'] = array('GT', $buy_num);
+            $rank_1 = $Num -> where($where) -> count();
+            //再按照ID的顺序倒序排列
+            $where = array();
+            $where['uid'] = array('ELT', $uid);
+            $where['sum'] = $buy_num;
+            $rank_2 = $Num -> where($where) -> count();
+            $rank = $rank_1 + $rank_2;
+
+            $return_result['status'] = 'success';
+            $return_result['buy_num'] = $buy_num;
+            $return_result['rank'] = $rank;
+        }
+
+        echo json_encode($return_result);
+    }
 }

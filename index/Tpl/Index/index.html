@@ -195,7 +195,22 @@
             alert('请输入您的手机号！');
             return;
         }
-        console.log(tel);
+
+        $.ajax({
+            type : 'POST',
+            url : '__URL__/query_rank',
+            cache : false,
+            data : '&con=' + tel,
+            dataType : 'json',
+            success : function(ress){
+                if(ress.status == 'error'){
+                    alert('没有查询到数据！请核实您的输入！');
+                    return;
+                }else{
+                    alert("已经有  " + ress.buy_num + "  人通过你的二维码购买了产品\r\n你帮友的排名是：第  " + ress.rank + "  名");
+                }
+            }
+        });
     }
 
 
