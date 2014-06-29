@@ -48,9 +48,16 @@ class IndexAction extends Action {
                 $buy_num = $Num -> getFieldByuid($uid, 'sum');
                 $this -> assign('buy_num', $buy_num);
                 //获取排名
+                //先计算比自己数量多的人的数量
                 $where = array();
-                $where['sum'] = array('EGT', $buy_num);
-                $rank = $Num -> where($where) -> count();
+                $where['sum'] = array('GT', $buy_num);
+                $rank_1 = $Num -> where($where) -> count();
+                //再按照ID的顺序倒序排列
+                $where = array();
+                $where['uid'] = array('ELT', $uid);
+                $where['sum'] = $buy_num;
+                $rank_2 = $Num -> where($where) -> count();
+                $rank = $rank_1 + $rank_2;
                 $this -> assign('rank', $rank);
 
             }
