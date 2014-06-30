@@ -82,7 +82,7 @@ a.btn_del:hover{opacity:0.7;filter:alpha(opacity=70);}
 .popcon{ width:576px; height:280px; margin:0 auto; padding:50px 0 0 0 }
 .popcon_left{ float:left; width:300px; height:210px; padding-right:40px;}
 .popcon_left a img{ border:0;}
-.popcon_right{ float:left; width:222px;}
+.popcon_right{ float:left; width:222px;margin-top: 60px;}
 .popcon_right div.btn_save{ width:222px; height:61px; margin:0 0 20px 0;}
 .popcon_right div.btn_save a{ display:inline-block;width:222px; height:61px; background:url(../images/btn_save.png) no-repeat;}
 .popcon_right div.btn_save a:hover{opacity:0.7;filter:alpha(opacity=70);}
