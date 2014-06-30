@@ -79,8 +79,8 @@ ul.numlist2 li{ width:400px; height:60px; line-height:60px; font-size:18px; colo
 a.btn_del{ width:24px; height:24px; text-decoration:none; background:url(../images/icon_close.png) no-repeat; display:inline-block; right:15px; top:15px; position:
     absolute;}
 a.btn_del:hover{opacity:0.7;filter:alpha(opacity=70);}
-.popcon{ width:546px; height:280px; margin:0 auto; padding:70px 0 0 0 }
-.popcon_left{ float:left; width:210px; height:210px; padding-right:100px;}
+.popcon{ width:576px; height:280px; margin:0 auto; padding:50px 0 0 0 }
+.popcon_left{ float:left; width:300px; height:210px; padding-right:40px;}
 .popcon_left a img{ border:0;}
 .popcon_right{ float:left; width:222px;}
 .popcon_right div.btn_save{ width:222px; height:61px; margin:0 0 20px 0;}
@@ -100,7 +100,7 @@ a.btn_del:hover{opacity:0.7;filter:alpha(opacity=70);}
 .sharediv a span.qqzone{background-position:-59px -41px;}
 .sharediv a span.renren{background-position:-118px -41px;}
 
-.popcon_foot{ width:246px; line-height:20px; color:#282828; font-size:11px; font-weight:400;}
+.popcon_foot {width: 296px;line-height: 20px;color: #282828;font-size: 11px;font-weight: 400;}
 .popcon_foot a{ text-decoration:none;}
 
 .list_lh{height:140px;overflow:hidden;}
