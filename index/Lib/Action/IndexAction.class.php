@@ -302,7 +302,7 @@ class IndexAction extends Action {
             $this -> show('<h1>授权失败！</h1>>');
             exit;
         }
-        $token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . C('WECHAT_APPID') . '&secret=' . C('WEIBO_APP_SECRET') . '&code=' . $_GET['code'] . '&grant_type=authorization_code';
+        $token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . C('WECHAT_APPID') . '&secret=' . C('WECHAT_APPSECRET') . '&code=' . $_GET['code'] . '&grant_type=authorization_code';
         $result_json = file_get_contents($token_url);
         $result_arr = json_decode($result_json, true);
         dump($result_arr);
