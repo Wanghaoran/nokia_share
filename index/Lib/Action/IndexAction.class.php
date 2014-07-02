@@ -299,5 +299,6 @@ class IndexAction extends Action {
     }
 
     public function wechat_index(){
+        dump($_GET);
     }
 }
