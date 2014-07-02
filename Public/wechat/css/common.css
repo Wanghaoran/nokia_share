@@ -1,0 +1,51 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0; border:0;}
+body,button,input,select,textarea{font:12px/1.6  "\5FAE\8F6F\96C5\9ED1";}/*5FAE\8F6F\96C5\9ED1  Verdana, Helvetica, sans-serif*/
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+address,cite,dfn,em,var{font-style:normal;}
+code,kbd,pre,samp{font-family:courier new,courier,monospace;}
+small{font-size:12px;}
+ul,ol,li{list-style:none;}
+a:link,a:visited{color:#898989;text-decoration:none;}
+a:hover,a:active{color:#898989;text-decoration:none;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}
+fieldset,img{border:0;}
+button,input,select,textarea{font-size:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+input{outline: none;}/* �����ı������ */
+textarea {outline: none;} 
+a{text-decoration:none;color:#333;outline:none;}
+a:hover{text-decoration:none;color:#F40;outline:none;}
+/* ���?�� */
+.clear:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.clear {zoom:1; /* for IE6 IE7 */}
+.clear2{ clear:both; height:2px;}
+.clear5{ clear:both; height:5px;}
+.clear6{ clear:both; height:6px;}
+.clear10{ clear:both; height:10px;}
+.clear20{ clear:both; height:20px;}
+.clear30{ clear:both; height:30px;}
+.clear40{ clear:both; height:40px;}
+.fl{ float:left;}
+
+body{font-family:"mircrosoft yahei","微软雅黑",Tahoma, Verdana, Arial, Geneva, sans-serif; background:#fff;}
+html{-webkit-text-size-adjust:none;}/*chrome font-size<12px */ 
+
+.container{ min-width:320px; width:100%;}
+	.top,.hdnr,.byb,.zxjx,.shengming,.product{width:100%; max-width:640px; margin:0 auto;}
+	.top img,.hdnr img,.byb img,.zxjx img,.shengming img{ width:100%;  vertical-align:bottom;}
+	.hdnr{ position:relative}
+	.hdnr .btn_lq{ position:absolute; top:21.5%; left:31%; width:38%; margin:0 auto; text-align:center;}
+	.hdnr .btn_lq a img{ border:0; width:100%;}
+	.hdnr .btn_lq a:hover img{opacity:0.8;filter:alpha(opacity=80);}
+	.byb{ position:relative}
+	.byb a{ position:absolute; left:50%; top:56%; width:44%; height:14%; display:inline-block;}
+	.byb a:hover{opacity:0.8;filter:alpha(opacity=80);}
+	.product ul{}
+	.product ul li{ width:18%; float:left; margin-left:1.8%}
+	.product ul li div.divimg{ width:100%;}
+	.product ul li div.divimg img{ width:100%; border:0;}
+	.product ul li div.divbtn{ width:80%; margin:5px auto 0; text-align:center}
+	.product ul li div.divbtn a img{ width:100%; border:none;}
+	.product ul li div.divbtn a:hover img{opacity:0.8;filter:alpha(opacity=80);}

@@ -299,7 +299,7 @@ class IndexAction extends Action {
 
     public function wechat_index(){
         if(!$_GET['code']){
-            $this -> show('<h1>授权失败！</h1>>');
+            $this -> show('<h1>授权失败！</h1>');
             exit;
         }
         $token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . C('WECHAT_APPID') . '&secret=' . C('WECHAT_APPSECRET') . '&code=' . $_GET['code'] . '&grant_type=authorization_code';
@@ -309,12 +309,13 @@ class IndexAction extends Action {
             $this -> show('<h1>授权失败！' .  $result_arr['errmsg'] . '</h1>');
         }
 
-        $access_token = '6OpV_wdsMmmOH6z5G7Gh5wPIr6Q2l2hgY-gw7WpxOIh2Pj0nODGKvU268EqNPF1aQHA7DhB_rdhRgfj6TzlQrw';
+        $this -> display();
+//        $access_token = '6OpV_wdsMmmOH6z5G7Gh5wPIr6Q2l2hgY-gw7WpxOIh2Pj0nODGKvU268EqNPF1aQHA7DhB_rdhRgfj6TzlQrw';
 
-        $aaa = file_get_contents('https://api.weixin.qq.com/cgi-bin/user/info?access_token=' . $access_token. '&openid=' . $result_arr['openid'] . '&lang=zh_CN');
-
-        $aa_arr = json_decode($aaa, true);
-        $this -> show('<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">');
-        dump($aa_arr);
+//        $aaa = file_get_contents('https://api.weixin.qq.com/cgi-bin/user/info?access_token=' . $access_token. '&openid=' . $result_arr['openid'] . '&lang=zh_CN');
+//
+//        $aa_arr = json_decode($aaa, true);
+//        $this -> show('<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">');
+//        dump($aa_arr);
     }
 }
