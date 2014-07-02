@@ -30,7 +30,7 @@ a:active{noOutline:expression(this.onFocus=this.blur());}
 .header{ width:940px; height:367px; background:url(../images/top.jpg) no-repeat;}
 	a.logo{ float:right; width:114px; height:24px; margin:25px 68px 0 0; display:inline-block;}
 	
-.hdnr{ width:940px; height:566px; background:url(../images/hdnr.jpg) no-repeat;}
+.hdnr{ width:940px; height:637px; background:url(../images/hdnr.jpg) no-repeat;}
 	.ewmbox{ width:153px; height:250px; padding:107px 0 0 173px;}
 		.ewmimg{ width:153px; height:153px; margin:0 auto 30px;}
 		.ewmimg img{ border:0;}
