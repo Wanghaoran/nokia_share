@@ -29,7 +29,7 @@ a:active{noOutline:expression(this.onFocus=this.blur());}
 .header{ width:100%; height:417px; background:url(../images/top.jpg) center top no-repeat;}
 	.headcon{ width:990px; margin:0 auto;}
 		a.logo{ width:135px; height:40px; margin:20px 40px 0 0; float:right; display:inline-block;}
-.hdnr{ width:100%; height:678px; background:url(../images/hdnr.jpg) center no-repeat;}
+.hdnr{ width:100%; height:723px; background:url(../images/hdnr.jpg) center no-repeat;}
 	.hdnrcon{ width:990px; margin:0 auto;}
 		.hdnrconleft{ float:left; width:200px; height:325px; margin:123px 0 0 139px;}
 		.hdnrconleft div.imgbox{ width:175px; height:175px; margin:0 auto 10px;}
