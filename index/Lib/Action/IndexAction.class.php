@@ -312,7 +312,7 @@ class IndexAction extends Action {
         if($result_arr['errcode']){
             $this -> show('<h1>授权失败！' .  $result_arr['errmsg'] . '</h1>');
         }
-        $this -> assign('result_json', $result_json);
+        $this -> assign('result_arr', $result_arr);
         $this -> display();
     }
 }

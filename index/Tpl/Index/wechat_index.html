@@ -54,7 +54,7 @@
             type : 'POST',
             url : '__URL__/checkwechat',
             cache : false,
-            data : '&id=<-{$Think.get.openid}->&type=wechat',
+            data : '&id=<-{$result_arr.openid}->&type=wechat',
 //            dataType : 'json',
             success : function(ress){
                 alert(ress);
