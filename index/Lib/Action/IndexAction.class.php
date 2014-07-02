@@ -314,6 +314,7 @@ class IndexAction extends Action {
         $aaa = file_get_contents('https://api.weixin.qq.com/cgi-bin/user/info?access_token=' . $access_token. '&openid=' . $result_arr['openid'] . '&lang=zh_CN');
 
         $aa_arr = json_decode($aaa, true);
+        $this -> show('<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">');
         dump($aa_arr);
     }
 }
