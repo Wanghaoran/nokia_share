@@ -362,6 +362,12 @@ class IndexAction extends Action {
         $this -> display();
     }
 
+    public function wechat_result(){
+        $id = $this -> _get('id', 'intval');
+        $this -> assign('id', $id);
+        $this -> display();
+    }
+
 
     //判断并获取access_token
     private  function checktoken(){
