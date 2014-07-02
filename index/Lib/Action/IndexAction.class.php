@@ -160,7 +160,53 @@ class IndexAction extends Action {
     }
 
     public function checkwechat(){
-        echo $_POST['id'];
+        $User = M('User');
+        $where = array();
+        $where['type'] = $this -> _post('type');
+        $where['content'] = $_POST['id'];
+        $result = $User -> field('id') -> where($where) -> find();
+        $return_result = array();
+        //没有数据则新建数据
+        if(!$result){
+            //获取用户昵称
+            //首先获取access_token
+            $token = $this -> checktoken();
+            if(!$token){
+                $return_result['status'] = 'error';
+            }else{
+                //获取用户姓名
+                $userinfo_json = file_get_contents('https://api.weixin.qq.com/cgi-bin/user/info?access_token=' . $token. '&openid=' . $_POST['id'] . '&lang=zh_CN');
+                $userinfo_arr = json_decode($userinfo_json, true);
+                $username = $userinfo_arr['nickname'];
+                if(!$username){
+                    $return_result['status'] = 'error';
+                }else{
+                    $data = array();
+                    $data['type'] = $this -> _post('type');
+                    $data['content'] = $_POST['id'];
+                    $data['addtime'] = time();
+                    $data['name'] = $username;
+
+                    if($id = $User -> add($data)){
+
+                        //新建统计数据
+                        $Num = M('Num');
+                        $data_num = array();
+                        $data_num['uid'] = $id;
+                        $data_num['sum'] = 0;
+                        $Num -> add($data_num);
+                        $return_result['status'] = 'success';
+                        $return_result['id'] = $id;
+                    }else{
+                        $return_result['status'] = 'error';
+                    }
+                }
+            }
+        }else{
+            $return_result['status'] = 'success';
+            $return_result['id'] = $result['id'];
+        }
+        echo json_encode($return_result);
     }
 
     public function checkqr(){
@@ -315,4 +361,31 @@ class IndexAction extends Action {
         $this -> assign('result_arr', $result_arr);
         $this -> display();
     }
+
+
+    //判断并获取access_token
+    private  function checktoken(){
+        $WechatSystem = M('WechatSystem');
+        $where = array();
+        $where['time'] = array('egt', time() - 7000);
+        $where['name'] = 'access_token';
+        $old_result = $WechatSystem -> field('value') -> where($where) -> find();
+        if(!$old_result){
+            //token 失效,重新获取
+            $json_str = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . C('WECHAT_APPID') . '&secret=' . C('WECHAT_APPSECRET')  .'');
+            $json_arr = json_decode($json_str, true);
+            //更新数据
+            $where_update = array();
+            $where_update['name'] = 'access_token';
+            $data_update = array();
+            $data_update['value'] = $json_arr['access_token'];
+            $data_update['time'] = time();
+            $WechatSystem -> where($where_update) -> save($data_update);
+            $token = $data_update['value'];
+        }else{
+            $token = $old_result['value'];
+        }
+        return $token;
+    }
+
 }
