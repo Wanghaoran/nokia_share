@@ -293,7 +293,7 @@ class IndexAction extends Action {
 
 
     public function wechat(){
-        $token_url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . C('WECHAT_APPID') . '&redirect_uri=' . urlencode(C('WECHAT_REDIRECT_URI')) . '&response_type=code&scope=snsapi_base&state=index#wechat_redirect';
+        $token_url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . C('WECHAT_APPID') . '&redirect_uri=' . C('WECHAT_REDIRECT_URI') . '&response_type=code&scope=snsapi_base&state=index#wechat_redirect';
         redirect($token_url);
     }
 
