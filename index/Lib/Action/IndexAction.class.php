@@ -159,6 +159,10 @@ class IndexAction extends Action {
         echo json_encode($return_result);
     }
 
+    public function checkwechat(){
+        echo $_POST['id'];
+    }
+
     public function checkqr(){
         $id = $this -> _get('id', 'intval');
         Vendor('phpqrcode.phpqrcode');
@@ -308,14 +312,7 @@ class IndexAction extends Action {
         if($result_arr['errcode']){
             $this -> show('<h1>授权失败！' .  $result_arr['errmsg'] . '</h1>');
         }
-
+        $this -> assign('result_json', $result_json);
         $this -> display();
-//        $access_token = '6OpV_wdsMmmOH6z5G7Gh5wPIr6Q2l2hgY-gw7WpxOIh2Pj0nODGKvU268EqNPF1aQHA7DhB_rdhRgfj6TzlQrw';
-
-//        $aaa = file_get_contents('https://api.weixin.qq.com/cgi-bin/user/info?access_token=' . $access_token. '&openid=' . $result_arr['openid'] . '&lang=zh_CN');
-//
-//        $aa_arr = json_decode($aaa, true);
-//        $this -> show('<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">');
-//        dump($aa_arr);
     }
 }

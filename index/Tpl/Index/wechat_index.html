@@ -16,7 +16,7 @@
     <div class="top"><img src="__PUBLIC__/wechat/images/top.jpg"/></div>
     <div class="hdnr">
         <img src="__PUBLIC__/wechat/images/hdnr.jpg"/>
-        <div class="btn_lq"><a href="#"><img src="__PUBLIC__/wechat/images/btn_lq.png"/></a></div>
+        <div class="btn_lq"><a href="javascript:checkinfo();"><img src="__PUBLIC__/wechat/images/btn_lq.png"/></a></div>
     </div>
     <div class="byb"><img src="__PUBLIC__/wechat/images/byb.jpg"/><a href="http://182.92.64.207/nokia_share" title="http://182.92.64.207/nokia_share"></a></div>
     <div class="zxjx"><img src="__PUBLIC__/wechat/images/zxjx.jpg"/></div>
@@ -48,6 +48,20 @@
     <div class="shengming"><img src="__PUBLIC__/wechat/images/shengming.jpg"/></div>
 </div>
 <script src="__PUBLIC__/index/js/jquery-1.9.1.min.js"></script>
+<script>
+    var checkinfo = function(){
+        $.ajax({
+            type : 'POST',
+            url : '__URL__/checkwechat',
+            cache : false,
+            data : '&id=<-{$Think.get.openid}->&type=wechat',
+//            dataType : 'json',
+            success : function(ress){
+                alert(ress);
+            }
+        });
+    }
+</script>
 <div style="display: none;">
     <script src="http://s4.cnzz.com/stat.php?id=5942738&web_id=5942738" language="JavaScript"></script>
 </div>
