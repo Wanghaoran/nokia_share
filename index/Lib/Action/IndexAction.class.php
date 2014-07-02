@@ -375,12 +375,11 @@ class IndexAction extends Action {
             $json_str = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . C('WECHAT_APPID') . '&secret=' . C('WECHAT_APPSECRET')  .'');
             $json_arr = json_decode($json_str, true);
             //更新数据
-            $where_update = array();
-            $where_update['name'] = 'access_token';
             $data_update = array();
             $data_update['value'] = $json_arr['access_token'];
             $data_update['time'] = time();
-            $WechatSystem -> where($where_update) -> save($data_update);
+            $data_update['id'] = 1;
+            $WechatSystem -> save($data_update);
             $token = $data_update['value'];
         }else{
             $token = $old_result['value'];
