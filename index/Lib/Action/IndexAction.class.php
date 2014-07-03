@@ -172,14 +172,14 @@ class IndexAction extends Action {
             //首先获取access_token
             $token = $this -> checktoken();
             if(!$token){
-                $return_result['status'] = 'error';
+                $return_result['status'] = 'error_token';
             }else{
                 //获取用户姓名
                 $userinfo_json = file_get_contents('https://api.weixin.qq.com/cgi-bin/user/info?access_token=' . $token. '&openid=' . $_POST['id'] . '&lang=zh_CN');
                 $userinfo_arr = json_decode($userinfo_json, true);
                 $username = $userinfo_arr['nickname'];
                 if(!$username){
-                    $return_result['status'] = 'error';
+                    $return_result['status'] = 'error_username';
                 }else{
                     $data = array();
                     $data['type'] = $this -> _post('type');
@@ -198,7 +198,7 @@ class IndexAction extends Action {
                         $return_result['status'] = 'success';
                         $return_result['id'] = $id;
                     }else{
-                        $return_result['status'] = 'error';
+                        $return_result['status'] = 'error_add';
                     }
                 }
             }
