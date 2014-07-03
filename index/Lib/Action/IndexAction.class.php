@@ -179,7 +179,11 @@ class IndexAction extends Action {
                 $userinfo_arr = json_decode($userinfo_json, true);
                 $username = $userinfo_arr['nickname'];
                 if(!$username){
-                    $return_result['status'] = $userinfo_json;
+                    $unsubscribe = $userinfo_arr['subscribe'];
+                    if($unsubscribe === 0){
+                        $return_result['subscribe'] = 'unsubscribe';
+                    }
+                    $return_result['status'] = 'error_nickname';
                 }else{
                     $data = array();
                     $data['type'] = $this -> _post('type');

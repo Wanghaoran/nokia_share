@@ -58,6 +58,10 @@
             dataType : 'json',
             success : function(ress){
                 if(ress.status != 'success'){
+                    if(ress.subscribe == 'unsubscribe'){
+                        alert('您还未关注诺基亚官方微信，关注后才可参加活动！');
+                        return;
+                    }
                     alert('数据请求失败！错误代码：' + ress.status);
                     return;
                 }else{
