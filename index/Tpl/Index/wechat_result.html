@@ -34,5 +34,113 @@
 </div>
 <script src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
 <script src="__PUBLIC__/bootstarp/js/bootstrap.min.js"></script>
+<script>
+    /*wechat*/
+    var dta={
+        appId:"",
+        MsgImg:"http://182.92.64.207/nokia_share/Public/index/images/icon.jpg",
+        TLImg:"http://182.92.64.207/nokia_share/Public/index/images/icon.jpg",
+        url:"http://182.92.64.207/nokia_share/share/<-{$id}->",
+        title:"我参加了诺基亚“拉帮‘皆’友，一起享”活动，扫描我的二维码购买就能立享优惠哦！明星机型都有参与！",
+        desc:"我参加了诺基亚“拉帮‘皆’友，一起享”活动，扫描我的二维码购买就能立享优惠哦！明星机型都有参与",
+        fakeid:"",
+        callback:function(){}
+    };
+    (function(){
+        var onBridgeReady=function(){
+
+            WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                WeixinJSBridge.invoke('sendAppMessage',{
+
+                    "appid":data.appId,
+
+                    "img_url":data.MsgImg,
+
+                    "img_width":"120",
+
+                    "img_height":"120",
+
+                    "link":data.url,
+
+                    "desc":data.desc,
+
+                    "title":data.title
+
+                }, function(res){(data.callback)();});
+
+            });
+
+            WeixinJSBridge.on('menu:share:timeline', function(argv){
+
+                (data.callback)();
+
+                WeixinJSBridge.invoke('shareTimeline',{
+
+                    "img_url":data.TLImg,
+
+                    "img_width":"120",
+
+                    "img_height":"120",
+
+                    "link":data.url,
+
+                    "desc":data.desc,
+
+                    "title":data.title
+
+                }, function(res){});
+
+            });
+
+            WeixinJSBridge.on('menu:share:weibo', function(argv){
+
+                WeixinJSBridge.invoke('shareWeibo',{
+
+                    "content":data.title,
+
+                    "url":data.url
+
+                }, function(res){(data.callback)();});
+
+            });
+
+            WeixinJSBridge.on('menu:share:facebook', function(argv){
+
+                (data.callback)();
+
+                WeixinJSBridge.invoke('shareFB',{
+
+                    "img_url":data.TLImg,
+
+                    "img_width":"120",
+
+                    "img_height":"120",
+
+                    "link":data.url,
+
+                    "desc":data.desc,
+
+                    "title":data.title
+
+                }, function(res){});
+
+            });
+
+        };
+        if(document.addEventListener){
+
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+
+        }else if(document.attachEvent){
+
+            document.attachEvent('WeixinJSBridgeReady'   , onBridgeReady);
+
+            document.attachEvent('onWeixinJSBridgeReady' , onBridgeReady);
+
+        }
+    })();
+    /*---*/
+
+</script>
 </body>
 </html>
