@@ -352,6 +352,13 @@ class IndexAction extends Action {
     }
 
     public function wechat_index(){
+
+        $code = $_GET['code'];
+        $re_url = 'http://42.121.116.205/test2.php?code=' . $code;
+        redirect($re_url);
+        /*
+
+
         if(!$_GET['code']){
             $this -> show('<h1>授权失败！</h1>');
             exit;
@@ -364,6 +371,9 @@ class IndexAction extends Action {
         }
         $this -> assign('result_arr', $result_arr);
         $this -> display();
+
+
+        */
     }
 
     public function wechat_result(){
