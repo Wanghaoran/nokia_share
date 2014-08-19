@@ -285,7 +285,7 @@ class IndexAction extends Action {
     //用户统计
     public function usertotal(){
         $User = M('User');
-        $result = $User -> alias('u') -> field('u.id,u.type,u.content,u.addtime,u.name,n.sum') -> join('nokia_num as n ON n.uid = u.id') -> order('n.sum DESC') -> limit(100) -> select();
+        $result = $User -> alias('u') -> field('u.id,u.type,u.content,u.addtime,u.name,n.sum') -> join('nokia_num as n ON n.uid = u.id') -> order('n.sum DESC,u.id ASC') -> limit(100) -> select();
         $this -> assign('result', $result);
 
         $this -> display();
