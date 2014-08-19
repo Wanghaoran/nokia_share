@@ -277,6 +277,20 @@ class IndexAction extends Action {
         $this -> display();
     }
 
+    //退单
+    public function exitverification(){
+        $this -> display();
+    }
+
+    //用户统计
+    public function usertotal(){
+        $User = M('User');
+        $result = $User -> alias('u') -> field('u.id,u.type,u.content,u.addtime,u.name,n.sum') -> join('nokia_num as n ON n.uid = u.id') -> order('n.sum DESC') -> limit(100) -> select();
+        $this -> assign('result', $result);
+
+        $this -> display();
+    }
+
     public function updateinfo(){
         $id = $this -> _post('id', 'intval');
         $orderid = $this -> _post('orderid');

@@ -1,12 +1,27 @@
 <div role="navigation" id="sidebar" class="col-xs-3 sidebar-offcanvas">
     <div class="list-group">
 
-        <a class="list-group-item active" href="#">首页</a>
+        <if condition="ACTION_NAME eq serververification">
+            <a class="list-group-item active" href="__ROOT__/index/serververification">首页</a>
+        <else/>
+            <a class="list-group-item" href="__ROOT__/index/serververification">首页</a>
+        </if>
+        <if condition="ACTION_NAME eq exitverification">
+            <a class="list-group-item active" href="__ROOT__/index/exitverification">退单</a>
+        <else/>
+            <a class="list-group-item" href="__ROOT__/index/exitverification">退单</a>
+        </if>
+
+        <if condition="ACTION_NAME eq usertotal">
+            <a class="list-group-item active" href="__ROOT__/index/usertotal">统计</a>
+            <else/>
+            <a class="list-group-item" href="__ROOT__/index/usertotal">统计</a>
+        </if>
 
         <div class="list-group">
             <a class="list-group-item">
                 <h5 class="list-group-item-heading">技术支持：</h5>
-                <p class="list-group-item-text"><strong>010-83906260</strong></p>
+                <p class="list-group-item-text"><strong>010-85890878</strong></p>
             </a>
         </div>
 

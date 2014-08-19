@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>用户统计 - 拉帮皆友一起享－活动优惠码验证系统</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="__PUBLIC__/bootstarp/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/upload/css/upload.css">
+    <script src="__PUBLIC__/js/respond.js"></script>
+</head>
+<body>
+
+<include file="Index:header" />
+
+<div class="container">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+        <include file="Index:sidebar" />
+
+        <div class="col-xs-9">
+
+
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">用户统计</div>
+                <div class="panel-body">
+                    <p>分享数前100名用户统计</p>
+                </div>
+
+                <!-- Table -->
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>用户ID</th>
+                        <th>用户类型</th>
+                        <th>用户昵称</th>
+                        <th>加入时间</th>
+                        <th>分享数</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="result" id="r">
+                        <tr>
+                            <td><-{$i}-></td>
+                            <td><-{$r.id}-></td>
+                            <td><-{$r.type}-></td>
+                            <td><-{$r.name}-></td>
+                            <td><-{$r.addtime|date="Y-m-d H:i:s", ###}-></td>
+                            <td><-{$r.sum}-></td>
+                        </tr>
+
+                    </volist>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+        </div><!--/span-->
+
+    </div>
+
+    <include file="Index:footer" />
+
+</div>
+
+<!--<script src="__PUBLIC__/js/jquery.min.js"></script>-->
+<script src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+<script src="__PUBLIC__/bootstarp/js/bootstrap.min.js"></script>
+
+<script>
+    var sendcheckinfo = function(){
+        var exampleInputOrder = $('#exampleInputOrder').val();
+        if(!exampleInputOrder){
+            alert('订单号不能为空！请重新填写！');
+            return;
+        }
+
+        $.ajax({
+            type : 'POST',
+            url : '__URL__/updateinfo',
+            cache : false,
+            data : '&id=<-{$result.id}->&orderid=' + exampleInputOrder,
+//            dataType : 'json',
+            success : function(ress){
+                if(ress == 1){
+                    alert('优惠码验证成功！');
+                    location.href='__ACTION__';
+                }else{
+                    alert('优惠码验证失败！');
+                    return;
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>
