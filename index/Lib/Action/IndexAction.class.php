@@ -295,7 +295,7 @@ class IndexAction extends Action {
         $Num = M('Num');
 
         $where = array();
-        $where['orderid'] = $code;
+        $where['code'] = $code;
         $data = array();
         $data['status'] = 3;
         if(!$ShareCode -> where($where) -> save($data)){
@@ -307,12 +307,12 @@ class IndexAction extends Action {
 
 
         //读取此验证码所属用户
-        $uid = $ShareCode -> getFieldByorderid($code, 'uid');
+        $uid = $ShareCode -> getFieldBycode($code, 'uid');
         //更新统计数据
         $where_num = array();
         $where_num['uid'] = $uid;
         if(!$Num -> where($where_num) -> setDec('sum')){
-            echo 3;
+            echo 1;
             return;
         }
         echo 2;
