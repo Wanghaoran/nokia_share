@@ -55,10 +55,14 @@
                                 <p class="lead">使用订单号：<small><-{$result.orderid}-></small></p>
                                 <p class="lead">领取时间：<small><-{$result.addtime|date="Y-m-d H:i:s", ###}-></small></p>
                                 <p class="lead">验证时间：<small><-{$result.checktime|date="Y-m-d H:i:s", ###}-></small></p>
+
+
+
+                                <button type="button" class="btn btn-success btn-lg btn-block" onclick="sendcheckinfo();">退单</button>
+
                             </div>
                         </div>
 
-                        <button type="button" class="btn btn-success" onclick="sendcheckinfo();">退单</button>
 
 
                         <else/>
