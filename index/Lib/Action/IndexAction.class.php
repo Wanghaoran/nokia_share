@@ -279,6 +279,13 @@ class IndexAction extends Action {
 
     //退单
     public function exitverification(){
+        if(!empty($_POST['code'])){
+            $ShareCode = M('ShareCode');
+            $where = array();
+            $where['c.code'] = $_POST['code'];
+            $result = $ShareCode -> alias('c') -> field('c.id,u.name as uname,c.code,c.status,c.orderid,c.addtime,c.checktime') -> where($where) -> join('nokia_user as u ON c.uid = u.id') -> find();
+            $this -> assign('result', $result);
+        }
         $this -> display();
     }
 

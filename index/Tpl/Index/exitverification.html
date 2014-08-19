@@ -32,6 +32,51 @@
             </form>
 
 
+            <notempty name="Think.post.code">
+
+                <if condition="empty($result)">
+                    <div class="panel panel-danger" style="margin-top: 50px;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">验证失败</h3>
+                        </div>
+                        <div class="panel-body">
+                            <h2>此优惠码不存在！</h2>
+                        </div>
+                    </div>
+                    <else/>
+                    <if condition="$result['status'] eq 2">
+                        <div class="panel panel-success" style="margin-top: 50px;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">优惠码验证信息</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">优惠码：<small><-{$result.code}-></small></p>
+                                <p class="lead">所属用户：<small><-{$result.uname}-></small></p>
+                                <p class="lead">使用订单号：<small><-{$result.orderid}-></small></p>
+                                <p class="lead">领取时间：<small><-{$result.addtime|date="Y-m-d H:i:s", ###}-></small></p>
+                                <p class="lead">验证时间：<small><-{$result.checktime|date="Y-m-d H:i:s", ###}-></small></p>
+                            </div>
+                        </div>
+
+                        <else/>
+                        <div class="panel panel-danger" style="margin-top: 50px;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">验证失败</h3>
+                            </div>
+                            <div class="panel-body">
+                                <h3>此优惠未被使用！</h3>
+                                </p>
+                            </div>
+
+                        </div>
+                    </if>
+
+                </if>
+
+            </notempty>
+
+
+
         </div><!--/span-->
 
     </div>
