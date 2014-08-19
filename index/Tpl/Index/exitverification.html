@@ -98,24 +98,19 @@
 
 <script>
     var sendcheckinfo = function(){
-        var exampleInputOrder = $('#exampleInputOrder').val();
-        if(!exampleInputOrder){
-            alert('订单号不能为空！请重新填写！');
-            return;
-        }
 
         $.ajax({
             type : 'POST',
-            url : '__URL__/updateinfo',
+            url : '__URL__/exitinfo',
             cache : false,
-            data : '&id=<-{$result.id}->&orderid=' + exampleInputOrder,
+            data : '&code=<-{$result.code}->',
 //            dataType : 'json',
             success : function(ress){
-                if(ress == 1){
-                    alert('优惠码验证成功！');
+                if(ress == 2){
+                    alert('退单成功！');
                     location.href='__ACTION__';
                 }else{
-                    alert('优惠码验证失败！');
+                    alert('退单失败！');
                     return;
                 }
             }

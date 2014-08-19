@@ -289,6 +289,33 @@ class IndexAction extends Action {
         $this -> display();
     }
 
+    public function exitinfo(){
+        $code = $_POST['code'];
+        $ShareCode = M('ShareCode');
+        $Num = M('Num');
+
+        $where = array();
+        $where['code'] = $code;
+        $data = array();
+        $data['status'] = 3;
+        if(!$ShareCode -> where($where) -> save($data)){
+            echo 1;
+            return;
+        }
+
+        //读取此验证码所属用户
+        $uid = $ShareCode -> getFieldBycode($code, 'uid');
+        //更新统计数据
+        $where_num = array();
+        $where_num['uid'] = $uid;
+        if(!$Num -> where($where_num) -> setDec('sum')){
+            echo 1;
+            return;
+        }
+        echo 2;
+
+    }
+
     //用户统计
     public function usertotal(){
         $User = M('User');
