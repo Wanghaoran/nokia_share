@@ -40,14 +40,14 @@
                             <h3 class="panel-title">验证失败</h3>
                         </div>
                         <div class="panel-body">
-                            <h2>此优惠码不存在！</h2>
+                            <h2>此淘宝订单不存在！</h2>
                         </div>
                     </div>
                     <else/>
                     <if condition="$result['status'] eq 2">
                         <div class="panel panel-success" style="margin-top: 50px;">
                             <div class="panel-heading">
-                                <h3 class="panel-title">优惠码验证信息</h3>
+                                <h3 class="panel-title">淘宝订单验证信息</h3>
                             </div>
                             <div class="panel-body">
                                 <p class="lead">优惠码：<small><-{$result.code}-></small></p>
