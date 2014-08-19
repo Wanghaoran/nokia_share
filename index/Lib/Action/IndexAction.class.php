@@ -282,7 +282,7 @@ class IndexAction extends Action {
         if(!empty($_POST['code'])){
             $ShareCode = M('ShareCode');
             $where = array();
-            $where['c.code'] = $_POST['code'];
+            $where['c.orderid'] = $_POST['code'];
             $result = $ShareCode -> alias('c') -> field('c.id,u.name as uname,c.code,c.status,c.orderid,c.addtime,c.checktime') -> where($where) -> join('nokia_user as u ON c.uid = u.id') -> find();
             $this -> assign('result', $result);
         }
@@ -295,7 +295,7 @@ class IndexAction extends Action {
         $Num = M('Num');
 
         $where = array();
-        $where['code'] = $code;
+        $where['orderid'] = $code;
         $data = array();
         $data['status'] = 3;
         if(!$ShareCode -> where($where) -> save($data)){
@@ -303,8 +303,11 @@ class IndexAction extends Action {
             return;
         }
 
+
+
+
         //读取此验证码所属用户
-        $uid = $ShareCode -> getFieldBycode($code, 'uid');
+        $uid = $ShareCode -> getFieldByorderid($code, 'uid');
         //更新统计数据
         $where_num = array();
         $where_num['uid'] = $uid;
