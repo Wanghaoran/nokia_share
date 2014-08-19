@@ -312,7 +312,7 @@ class IndexAction extends Action {
         $where_num = array();
         $where_num['uid'] = $uid;
         if(!$Num -> where($where_num) -> setDec('sum')){
-            echo 1;
+            echo 3;
             return;
         }
         echo 2;
