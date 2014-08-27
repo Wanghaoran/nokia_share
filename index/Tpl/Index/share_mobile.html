@@ -55,8 +55,8 @@
                 </div>
             </div>
             <div class="bybcon_right">
-            	<div class="bybcon_r_input"><input type="text" value=""/></div>
-                <div class="bybcon_r_query"><a href="javascript:alert('亲，活动还没开始，请开始后再来查询哦！');" title="查询"><img src="__PUBLIC__/wechat/images/btn_query.png"/></a></div>
+            	<div class="bybcon_r_input"><input type="text" value="" id="query_list_tel"/></div>
+                <div class="bybcon_r_query"><a href="javascript:query_list();" title="查询"><img src="__PUBLIC__/wechat/images/btn_query.png"/></a></div>
             </div>
         </div>
         	
@@ -73,6 +73,32 @@ $(document).ready(function(){
 	});
 })
 </script>
+
+    <script>
+        var query_list = function(){
+            var tel = $('#query_list_tel').val();
+            if(!tel){
+                alert('请输入您的手机号！');
+                return;
+            }
+
+            $.ajax({
+                type : 'POST',
+                url : '__URL__/query_rank',
+                cache : false,
+                data : '&con=' + tel,
+                dataType : 'json',
+                success : function(ress){
+                    if(ress.status == 'error'){
+                        alert('没有查询到数据！请核实您的输入！');
+                        return;
+                    }else{
+                        alert("已经有  " + ress.buy_num + "  人通过你的二维码购买了产品\r\n你帮友的排名是：第  " + ress.rank + "  名");
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
