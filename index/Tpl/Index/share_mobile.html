@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>拉帮皆友一起享</title>
+<meta http-equiv="Cache-Control" content="max-age=3600">
+<meta name="MobileOptimized" content="240">
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/wechat/css/common.css">
+</head>
+<body>
+	<div class="container">
+    	<div class="top"><img src="__PUBLIC__/wechat/images/top2.jpg"/></div>
+        <div class="yhm">
+            <img src="__PUBLIC__/wechat/images/yhm.jpg"/>
+            <div class="yhm_text"><h1><-{$code}-></h1></div>
+        </div>
+        
+        <div class="zxjx"><img src="__PUBLIC__/wechat/images/con_zxjx.jpg"/></div>
+        <div class="product2">
+            <ul>
+                <li class="first">
+
+                    <div class="divbtn"><a href="http://detail.tmall.com/item.htm?spm=a230r.1.14.46.e5Oz9k&id=40451419043&sku_properties="><img src="__PUBLIC__/wechat/images/img_gfqjd.jpg"/></a></div>
+                </li>
+                <li>
+
+                    <div class="divbtn"><a href="http://detail.tmall.com/item.htm?spm=a230r.1.14.2.e5Oz9k&id=40462045347&ad_id=&am_id=&cm_id=140105335569ed55e27b&pm_id=&sku_properties="><img src="__PUBLIC__/wechat/images/img_gxtdzmd.jpg"/></a></div>
+                </li>
+                <li>
+
+                    <div class="divbtn"><a href="http://detail.tmall.com/item.htm?spm=a230r.1.14.57.e5Oz9k&id=40444770291&sku_properties="><img src="__PUBLIC__/wechat/images/img_nlzmd.jpg"/></a></div>
+                </li>
+                <li>
+
+                    <div class="divbtn"><a href="http://detail.tmall.com/item.htm?spm=a230r.1.14.90.e5Oz9k&id=40433063126&sku_properties="><img src="__PUBLIC__/wechat/images/img_sjzmd.jpg"/></a></div>
+                </li>
+
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="bybox">
+        	<img src="__PUBLIC__/wechat/images/bybcon.jpg"/>
+        	<div class="bybcon">
+        	<div class="bybcon_left">
+            	<div class="list_lh">
+                <ul class="numlist">
+                    <volist name="user_rank" id="ur">
+                        <li><-{$i}->.<-{$ur.uname}-></li>
+                    </volist>
+                </ul>
+                </div>
+            </div>
+            <div class="bybcon_right">
+            	<div class="bybcon_r_input"><input type="text" value=""/></div>
+                <div class="bybcon_r_query"><a href="javascript:alert('亲，活动还没开始，请开始后再来查询哦！');" title="查询"><img src="__PUBLIC__/wechat/images/btn_query.png"/></a></div>
+            </div>
+        </div>
+        	
+        </div>
+    </div>
+<script type="text/javascript" src="__PUBLIC__/wechat/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/wechat/js/scroll.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+						   $('.list_lh li:even').addClass('lieven');
+	$("div.list_lh").myScroll({
+		speed:40, //数值越大，速度越慢
+		rowHeight:18 //li的高度
+	});
+})
+</script>
+</body>
+
+</html>

@@ -239,6 +239,38 @@ class IndexAction extends Action {
 
     public function share(){
 
+        if(is_mobile()){
+            redirect(PHP_FILE . '/Index/share_mobile/id/' . $_GET['id']);
+        }
+
+        //优惠码
+        $code = str_replace('.', rand(10000000, 99999999), uniqid('', true));
+        $this -> assign('code', $code);
+
+        //记录优惠码
+        $uid = $this -> _get('id', 'intval');
+        $ShareCode = M('ShareCode');
+        $data = array();
+        $data['uid'] = $uid;
+        $data['code'] = $code;
+        $data['addtime'] = time();
+        if(!$ShareCode -> add($data)){
+            $this -> show('<h1>此用户不存在！</h1>');
+            return;
+        }
+
+        //帮友排行
+        $Num = M('Num');
+        $user_rank = $Num -> alias('n') -> field('u.name as uname') -> join('nokia_user as u ON n.uid = u.id') -> order('n.sum DESC,u.addtime ASC') -> limit(5) -> select();
+
+        foreach($user_rank as $key => $value){
+            $user_rank[$key]['uname'] = cut_str($value['uname'], 1, 0).'****'.cut_str($value['uname'], 1, -1);
+        }
+        $this -> assign('user_rank', $user_rank);
+        $this -> display();
+    }
+
+    public function share_mobile(){
         //优惠码
         $code = str_replace('.', rand(10000000, 99999999), uniqid('', true));
         $this -> assign('code', $code);
