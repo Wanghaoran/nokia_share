@@ -36,7 +36,7 @@ html{-webkit-text-size-adjust:none;}/*chrome font-size<12px */
 	.top,.hdnr,.byb,.zxjx,.shengming,.product,.yhm,.product2,.bybox{width:100%; max-width:640px; margin:0 auto;}
 	.top img,.hdnr img,.byb img,.zxjx img,.shengming img,.yhm img,.bybox img{ width:100%;  vertical-align:bottom;}
 	.hdnr{ position:relative}
-	.hdnr .btn_lq{ position:absolute; top:19%; left:31%; width:38%; margin:0 auto; text-align:center;}
+	.hdnr .btn_lq{ position:absolute; top:16%; left:31%; width:38%; margin:0 auto; text-align:center;}
 	.hdnr .btn_lq a img{ border:0; width:100%;}
 	.hdnr .btn_lq a:hover img{opacity:0.8;filter:alpha(opacity=80);}
 	
