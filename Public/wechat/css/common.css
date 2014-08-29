@@ -45,7 +45,7 @@ html{-webkit-text-size-adjust:none;}/*chrome font-size<12px */
 	.yhm .yhm_text h1{font-size:8px; font-weight:400; color:#404040; text-align:center;}
 	
 	.byb{ position:relative}
-	.byb a{ position:absolute; left:20%; top:57%; width:80%; height:14%; display:inline-block;}
+	.byb a{ position:absolute; left:7%; top:64%; width:70%; height:14%; display:inline-block;}
 	.byb a:hover{opacity:0.8;filter:alpha(opacity=80);}
 	.product ul{}
 	.product ul li{ width:23%; float:left; margin:0 0 5px 1.8%;}

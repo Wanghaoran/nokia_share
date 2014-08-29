@@ -481,4 +481,8 @@ class IndexAction extends Action {
         return $token;
     }
 
+    public function mobile_tests(){
+        $this -> display('wechat_index');
+    }
+
 }
