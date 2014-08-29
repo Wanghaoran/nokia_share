@@ -38,7 +38,8 @@
                         <th>用户类型</th>
                         <th>用户昵称</th>
                         <th>加入时间</th>
-                        <th>分享数</th>
+                        <th>购买数</th>
+                        <th>分享点击数</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -50,6 +51,7 @@
                             <td><-{$r.name}-></td>
                             <td><-{$r.addtime|date="Y-m-d H:i:s", ###}-></td>
                             <td><-{$r.sum}-></td>
+                            <td><-{$r.count|default=0}-></td>
                         </tr>
 
                     </volist>
