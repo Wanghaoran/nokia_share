@@ -456,6 +456,50 @@ class IndexAction extends Action {
         $this -> display();
     }
 
+    public function getuserdate(){
+        $openid = $_POST['openid'];
+        $type = $_POST['type'];
+
+        $User = M('User');
+        //获取ID
+        $where = array();
+        $where['type'] = $type;
+        $where['content'] = $openid;
+        $id_arr = $User -> field('id') -> where($where) -> find();
+
+        $result = array();
+        if(!$id_arr){
+            $result['state'] = 'error';
+            echo json_encode($result);
+            exit;
+        }
+
+        $uid = $id_arr['id'];
+        $Num = M('Num');
+        //购买数量
+        $buy_num = $Num -> getFieldByuid($uid, 'sum');
+        //获取排名
+        //先计算比自己数量多的人的数量
+        $where = array();
+        $where['sum'] = array('GT', $buy_num);
+        $rank_1 = $Num -> where($where) -> count();
+        //再按照ID的顺序倒序排列
+        $where = array();
+        $where['uid'] = array('ELT', $uid);
+        $where['sum'] = $buy_num;
+        $rank_2 = $Num -> where($where) -> count();
+        $rank = $rank_1 + $rank_2;
+
+        $result['state'] = 'success';
+        $result['sum'] = $buy_num;
+        $result['rank'] = $rank;
+
+        echo json_encode($result);
+        exit;
+
+
+    }
+
 
     //判断并获取access_token
     private  function checktoken(){
