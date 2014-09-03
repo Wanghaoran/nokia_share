@@ -74,11 +74,14 @@
         <div class="bybcon">
         	<div class="bybcon_left">
             	<div class="bybcon_l_title"></div>
+                <div class="list_lh">
+
                 <ul class="numlist">
                     <volist name="user_rank" id="ur">
                         <li><-{$ur.uname}-></li>
                     </volist>
                 </ul>
+                    </div>
             </div>
             <div class="bybcon_right">
             	<div class="bybcon_r_input"><input type="text" value="" id="query_list_tel"/></div>
@@ -91,5 +94,15 @@
     <div style="display: none;">
         <script src="http://s4.cnzz.com/stat.php?id=5942738&web_id=5942738" language="JavaScript"></script>
     </div>
+    <script type="text/javascript" src="__PUBLIC__/weibo/javascript/scroll.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("div.list_lh").myScroll({
+                speed:40, //数值越大，速度越慢
+                rowHeight:28 //li的高度
+            });
+        })
+    </script>
+
 </body>
 </html>
